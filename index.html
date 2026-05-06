@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- Compatibilidad adicional: asegurar que navegadores/servidores detecten UTF-8 -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Datos</title>
+
+    <!-- Favicon de ejemplo -->
+    <link rel="icon" href="https://placehold.co/32x32/4CAF50/000000?text=B" type="image/png">
+
+    <!-- CSS Modularizado -->
+    <link rel="stylesheet" href="Css/main.css">
+    <link rel="stylesheet" href="Css/loading.css">
+    <link rel="stylesheet" href="Css/settings.css">
+    <link rel="stylesheet" href="Css/modal-github.css">
+    <link rel="stylesheet" href="Css/inventory.css">
+    <link rel="stylesheet" href="Css/inventory-modal.css">
+    <link rel="stylesheet" href="Css/tools.css">
+    <link rel="stylesheet" href="Css/notifications-editor.css">
+    <link rel="stylesheet" href="Css/notifications.css">
+
+    <link rel="stylesheet" href="Css/summaryBot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.154.0/build/three.module.js"
+            }
+        }
+        </script>
+</head>
+<body>
+    <!-- Loading Panel - Ultra Moderno -->
+    <div id="loading-panel" class="loading-panel">
+        <!-- Fondo animado con partículas -->
+        <div class="loading-bg-particles">
+            <div class="loading-particle" style="--delay: 0s; --duration: 8s;"></div>
+            <div class="loading-particle" style="--delay: 1s; --duration: 10s;"></div>
+            <div class="loading-particle" style="--delay: 2s; --duration: 9s;"></div>
+            <div class="loading-particle" style="--delay: 3s; --duration: 11s;"></div>
+            <div class="loading-particle" style="--delay: 4s; --duration: 7s;"></div>
+        </div>
+        
+        <div class="loading-panel-content">
+            <!-- Logo animado -->
+            <div class="loading-panel-header">
+                <div class="loading-panel-icon">
+                    <svg class="loading-icon-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4CAF50;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#2E7D32;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="url(#iconGradient)" stroke-width="2" opacity="0.3"/>
+                        <path d="M 30 60 L 50 30 L 70 60" fill="none" stroke="url(#iconGradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M 30 60 L 70 60" stroke="url(#iconGradient)" stroke-width="2" opacity="0.5"/>
+                    </svg>
+                </div>
+                
+                <div class="loading-panel-text">
+                    <h1 class="loading-panel-title">Dashboard Asere</h1>
+                    <p class="loading-panel-subtitle">Preparando tu panel de análisis...</p>
+                </div>
+            </div>
+            
+            <!-- Barra de progreso mejorada -->
+            <div class="loading-progress-container">
+                <div class="loading-progress-bar">
+                    <div class="loading-progress-fill" id="loading-progress-fill"></div>
+                    <div class="loading-progress-shimmer"></div>
+                </div>
+                <div class="loading-progress-text">
+                    <span id="loading-percent" class="loading-percent-value">0%</span>
+                </div>
+            </div>
+            
+            <!-- Panel de estado detallado -->
+            <div class="loading-status-panel">
+                <div class="loading-status-item">
+                    <span class="loading-status-icon"><i class="fas fa-server"></i></span>
+                    <div class="loading-status-content">
+                        <span class="loading-status-label">Servidor</span>
+                        <span class="loading-status-value" id="loading-status-server">Conectando...</span>
+                    </div>
+                </div>
+                
+                <div class="loading-status-item">
+                    <span class="loading-status-icon"><i class="fas fa-database"></i></span>
+                    <div class="loading-status-content">
+                        <span class="loading-status-label">Datos</span>
+                        <span class="loading-status-value" id="loading-status-data">Cargando...</span>
+                    </div>
+                </div>
+                
+                <div class="loading-status-item">
+                    <span class="loading-status-icon"><i class="fas fa-tachometer-alt"></i></span>
+                    <div class="loading-status-content">
+                        <span class="loading-status-label">Velocidad</span>
+                        <span class="loading-status-value" id="loading-status-speed">—</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Animación de carga -->
+            <div class="loading-dots-container">
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+            </div>
+            
+            <!-- Mini estadísticas -->
+            <div class="loading-mini-stats">
+                <div class="loading-mini-stat">
+                    <span class="loading-mini-label">Paso</span>
+                    <span class="loading-mini-value" id="loading-step">1/8</span>
+                </div>
+                <div class="loading-mini-stat separator"></div>
+                <div class="loading-mini-stat">
+                    <span class="loading-mini-label">Tiempo</span>
+                    <span class="loading-mini-value" id="loading-time">0s</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="app-header">
+        <div class="header-content">
+            <button class="hamburger-menu" id="hamburger-btn" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="app-logo">
+                <img src="Img/LOGO.png" alt="Asere" class="app-logo-img">
+                <h1>Dashboard</h1>
+            </div>
+            <span class="header-status"><i class="fas fa-circle status-indicator"></i> Conectado</span>
+        </div>
+    </header>
+
+    <!-- Overlay para cerrar menú (mobile) -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+
+    <div class="main-wrapper">
+        <!-- Menú Lateral -->
+        <nav class="sidebar-menu" id="sidebar-menu">
+            <div class="menu-header">
+                <h2><i class="fas fa-bars" style="margin-right: 0.4rem;"></i>Nav</h2>
+                <button class="close-menu" id="close-menu" aria-label="Cerrar menú">&times;</button>
+            </div>
+            <ul class="menu-list">
+                <li><a href="#" class="menu-item active" data-view="dashboard">
+                    <svg class="menu-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="3" y="3" width="8" height="8" rx="2"/>
+                        <rect x="13" y="3" width="8" height="8" rx="5"/>
+                        <rect x="3" y="13" width="8" height="8" rx="2"/>
+                        <rect x="13" y="13" width="8" height="8" rx="2"/>
+                    </svg>
+                    Overview
+                </a></li>
+                <li><a href="#" class="menu-item" data-view="inventory"><i class="fas fa-boxes"></i> Inventario</a></li>
+                <li><a href="#" class="menu-item" data-view="notifications"><i class="fas fa-bell"></i> Notificaciones</a></li>
+                <li class="menu-separator"></li>
+                <li><a href="#" class="menu-item" data-view="server"><i class="fas fa-server"></i> Server</a></li>
+                <li><a href="#" class="menu-item" data-view="tools"><i class="fas fa-wrench"></i> Herramientas</a></li>
+                <li class="menu-separator"></li>
+                <li><a href="#" class="menu-item" data-view="settings"><i class="fas fa-cog"></i> Ajustes</a></li>
+            </ul>
+        </nav>
+
+        <!-- Contenido Principal -->
+        <main class="content">
+        <!-- Vista Dashboard -->
+        <div id="dashboard-view" class="view-content active">
+            <header class="header">
+                <div class="header-top">
+                    <div class="search-bar">
+                        <input type="text" id="search-data" placeholder="Buscar en datos..." class="input-light">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    
+                    <div class="header-actions">
+                        <button class="btn btn-primary" id="refresh-data">
+                            <i class="fas fa-sync-alt"></i> Actualizar
+                        </button>
+
+                        <button id="open-filters" class="btn btn-outline" aria-haspopup="dialog" aria-controls="filters-modal">
+                            <i class="fas fa-filter"></i> Filtros
+                        </button>
+                    </div>
+                </div>
+                <div class="header-main">
+                    <div class="header-stats">
+                        <div class="stat-card primary">
+                            <i class="fas fa-chart-pie"></i>
+                            <div class="stat-content">
+                                <span class="stat-value" id="total-orders">0</span>
+                                <span class="stat-label">Pedidos Totales</span>
+                            </div>
+                            <div class="currency-panel cup">
+                                <span class="stat-value" id="total-sales">$ 0</span>
+                                <span class="stat-label">Ventas Totales</span>
+                            </div>
+                        </div>
+                        <div class="stat-card accent">
+                            <i class="fas fa-cubes"></i>
+                            <div class="stat-content">
+                                <span class="stat-value" id="avg-order-value">$ 0</span>
+                                <span class="stat-label">Valor Promedio Pedido</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-users"></i>
+                            <div class="stat-content">
+                                <span class="stat-value" id="unique-customers">0</span>
+                                <span class="stat-label">Clientes Únicos</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-user-check"></i>
+                            <div class="stat-content" id="server-available-users-card">
+                                <div class="metric-card small">
+                                    <div class="metric-label">Visitas Totales</div>
+                                    <div class="metric-value" id="server-available-users">0</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters Modal -->
+                <div id="filters-modal" class="filters-modal github-save-modal" role="dialog" aria-modal="true" aria-hidden="true" inert>
+                    <div class="modal-overlay" id="filters-modal-overlay"></div>
+                    <div class="modal-content" role="document">
+                        <div class="modal-header">
+                            <h3>Filtros</h3>
+                            <button class="modal-close" id="filters-modal-close" aria-label="Cerrar filtros">&times;</button>
+                        </div>
+                        <div class="modal-body" style="align-items:flex-start;">
+                            <div class="filters" style="display:flex; width:100%;">
+                                <div class="filter-group">
+                                    <label for="filter-period"><i class="fas fa-calendar-alt"></i> Periodo</label>
+                                    <select id="filter-period" class="select-light">
+                                        <option value="month">Este Mes</option>
+                                        <option value="last-month">Mes Pasado</option>
+                                        <option value="year">Este Año</option>
+                                        <option value="all">Todos</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <div class="form-label"><i class="fas fa-calendar-week"></i> Rango de Fechas</div>
+                                    <div class="date-range">
+                                        <label for="filter-date-start" class="sr-only">Fecha inicio</label>
+                                        <input type="date" id="filter-date-start" class="input-light">
+                                        <span aria-hidden="true">a</span>
+                                        <label for="filter-date-end" class="sr-only">Fecha fin</label>
+                                        <input type="date" id="filter-date-end" class="input-light">
+                                    </div>
+                                </div>
+                                    <div class="filter-group">
+                                        <label for="filter-country"><i class="fas fa-globe"></i> País</label>
+                                        <select id="filter-country" class="select-light">
+                                            <option value="all">Todos</option>
+                                        </select>
+                                    </div>
+                                    <div class="filter-group">
+                                        <label for="filter-affiliate"><i class="fas fa-link"></i> Afiliado</label>
+                                        <select id="filter-affiliate" class="select-light">
+                                            <option value="all">Todos</option>
+                                        </select>
+                                    </div>
+                                    <div class="filter-group">
+                                        <label for="filter-user-type"><i class="fas fa-user-tag"></i> Tipo de Usuario</label>
+                                        <select id="filter-user-type" class="select-light">
+                                            <option value="all">Todos</option>
+                                            <option value="Único">Único</option>
+                                            <option value="Recurrente">Recurrente</option>
+                                        </select>
+                                    </div>
+                                    <div class="filter-group">
+                                        <label for="filter-browser"><i class="fas fa-desktop"></i> Navegador</label>
+                                        <select id="filter-browser" class="select-light">
+                                            <option value="all">Todos</option>
+                                        </select>
+                                    </div>
+                                    <div class="filter-group">
+                                        <label for="filter-os"><i class="fas fa-hdd"></i> Sistema Operativo</label>
+                                        <select id="filter-os" class="select-light">
+                                            <option value="all">Todos</option>
+                                        </select>
+                                    </div>
+                                    <div class="filter-group">
+                                        <div class="form-label"><i class="fas fa-dollar-sign"></i> Precio Total</div>
+                                        <div style="display:flex;gap:0.5rem;">
+                                            <label for="filter-min-total" class="sr-only">Precio mínimo</label>
+                                            <input type="number" id="filter-min-total" class="input-light" placeholder="Min">
+                                            <label for="filter-max-total" class="sr-only">Precio máximo</label>
+                                            <input type="number" id="filter-max-total" class="input-light" placeholder="Max">
+                                        </div>
+                                    </div>
+                                    <div class="filter-group">
+                                        <label for="filter-has-purchase"><i class="fas fa-shopping-bag"></i> Contiene Pedido</label>
+                                        <select id="filter-has-purchase" class="select-light">
+                                            <option value="all">Todos</option>
+                                            <option value="with">Con Compra</option>
+                                            <option value="without">Sin Compra</option>
+                                        </select>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn" id="filters-apply">Aplicar</button>
+                            <button class="btn btn-secondary" id="filters-close">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="dashboard-grid">
+                <div class="insights-grid">
+                    <div class="card summary-card">
+                        <h3 class="card-title"><i class="fas fa-chart-bar"></i> Resumen General</h3>
+                        <div class="summary-grid" id="general-summary"></div>
+                    </div>
+
+
+
+                    <div class="card daily-card">
+                        <h3 class="card-title"><i class="fas fa-calendar-alt"></i> Resumen Diario</h3>
+                        <div class="summary-grid" id="daily-summary"></div>
+                    </div>
+
+                    <div class="card entry-card">
+                        <h3 class="card-title"><i class="fas fa-clock"></i> Horas de Entrada (Usuarios)</h3>
+                        <div class="card-body" id="entry-hours-card">
+                            <div id="entry-hours-container">
+                                <div class="metric-card">
+                                    <div class="metric-label">Hora Promedio</div>
+                                    <div class="metric-value" id="avg-entry-time">—</div>
+                                </div>
+                                <div id="peak-hours-list">Cargando...</div>
+                                <div>
+                                    <canvas id="entry-hours-canvas"></canvas>
+                                    <div id="entry-hours-legend"></div>
+                                    <div id="entry-hours-histogram"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card full-width products-card">
+                        <h3 class="card-title"><i class="fas fa-star"></i> Top Productos</h3>
+                        <div class="chart-container">
+                            <canvas id="products-chart" width="300" height="200"></canvas>
+                        </div>  
+                        <div class="ranking-list compact" id="top-products"></div>
+                    </div>
+
+                    <div class="card full-width sales-card">
+                        <h3 class="card-title"><i class="fas fa-chart-line"></i> Tendencias de Ventas</h3>
+                        <div class="chart-container">
+                            <canvas id="sales-trend-chart" width="300" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </section>
+            <div class="card full-width transactions-card">
+                    <div class="card-header-with-tabs">
+                        <h3 class="card-title"><i class="fas fa-exchange-alt"></i> Transacciones Recientes</h3>
+                        <div class="tabs">
+                            <button class="tab-btn active" data-tab="all">Todos</button>
+                            <button class="tab-btn" data-tab="affiliated">Con Afiliado</button>
+                            <button class="tab-btn" data-tab="direct">Directos</button>
+                        </div>
+                    </div>
+                    <div id="data-list" class="orders-container"></div>
+                </div>
+        </div>
+
+        <!-- Vista Server -->
+        <div id="server-view" class="view-content">
+            <div class="server-header">
+                <h2><i class="fas fa-server"></i> Panel de Control del Servidor</h2>
+                <div class="server-controls">
+                    <div class="auto-refresh-panel">
+                        <label for="auto-refresh-select" class="refresh-label">
+                            <i class="fas fa-sync"></i> Auto-actualizar:
+                        </label>
+                        <select id="auto-refresh-select" class="refresh-select">
+                            <option value="0">Desactivado</option>
+                            <option value="15">Cada 15s</option>
+                            <option value="30">Cada 30s</option>
+                            <option value="60">Cada 60s</option>
+                        </select>
+                        <span class="last-update" id="last-update-time">Actualizado hace poco</span>
+                    </div>
+                    <button class="btn btn-primary" id="refresh-server-btn">
+                        <i class="fas fa-sync-alt"></i> Actualizar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Server Grid con orden de prioridad CSS (nth-child) -->
+            <div class="server-grid">
+                
+                <!-- 1. ESTADO DEL SERVIDOR (Priority: 1 - Full Width) -->
+                <div class="server-card status-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-heartbeat"></i> Estado del Servidor</h3>
+                    </div>
+                    <div class="status-content" id="server-status-content">
+                        <div class="status-item">
+                            <span class="label">Estado:</span>
+                            <span class="value status-running" id="server-state">Cargando...</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="label">Hora de Inicio:</span>
+                            <span class="value" id="server-start-time">Cargando...</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="label">Tiempo de Actividad:</span>
+                            <span class="value" id="server-uptime">Cargando...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. RESUMEN DE ESTADÍSTICAS (Priority: 2) -->
+                <div class="server-card runtime-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-microchip"></i> Estado del Servidor (Runtime)</h3>
+                    </div>
+                    <div class="runtime-grid" id="server-runtime-stats">
+                        <div class="stat-row">
+                            <span class="label">CPU</span>
+                            <span class="value" id="server-cpu">Cargando...</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="label">Memoria (heapUsed)</span>
+                            <span class="value" id="server-memory">Cargando...</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="label">Cores</span>
+                            <span class="value" id="server-cores">Cargando...</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="label">Muestra CPU (ms)</span>
+                            <span class="value" id="server-sample">100</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. PEDIDOS NUEVOS (Priority: 3 - Full Width) -->
+                <div class="server-card full-width">
+                    <div class="card-header">
+                        <h3><i class="fas fa-boxes"></i> Pedidos Nuevos</h3>
+                        <div class="card-header-actions">
+                            <span class="badge" id="new-orders-count">0</span>
+                            <button class="btn btn-success" id="save-orders-to-github" title="Guardar pedidos en GitHub">
+                                Guardar en base de datos
+                            </button>
+                        </div>
+                    </div>
+                    <div class="table-responsive" id="new-orders-container">
+                        <p class="no-data">Cargando pedidos...</p>
+                    </div>
+                </div>
+
+                <!-- 4. LOGS DEL SERVIDOR (Priority: 4 - Full Width) -->
+                <div class="server-card full-width">
+                    <div class="card-header">
+                        <h3><i class="fas fa-list"></i> Logs del Servidor</h3>
+                        <button class="btn-icon" id="clear-logs-btn" title="Limpiar logs">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <div class="logs-container" id="server-logs-container">
+                        <p class="no-data">Cargando logs...</p>
+                    </div>
+                </div>
+
+                <!-- 5. ACTIVIDAD DE USUARIOS (Priority: 5 - Full Width) -->
+                <div class="server-card full-width">
+                    <div class="card-header">
+                        <h3><i class="fas fa-user-circle"></i> Actividad de Usuarios</h3>
+                        <div class="filter-logs">
+                            <input type="text" id="filter-users" placeholder="Buscar por IP o país..." class="input-light small">
+                        </div>
+                    </div>
+                    <div class="table-responsive" id="users-activity-container">
+                        <p class="no-data">Cargando usuarios...</p>
+                    </div>
+                </div>
+
+                <!-- 6. FUENTES DE TRÁFICO (Priority: 6) -->
+                <div class="server-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-globe"></i> Tráfico</h3>
+                    </div>
+                    <div class="traffic-stats" id="traffic-sources">
+                        <p class="no-data">Cargando...</p>
+                    </div>
+                </div>
+
+                <!-- 7. DISTRIBUCIÓN DE PAÍSES (Priority: 7) -->
+                <div class="server-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-map"></i> Países</h3>
+                    </div>
+                    <div class="countries-stats" id="countries-distribution">
+                        <p class="no-data">Cargando...</p>
+                    </div>
+                </div>
+
+                <!-- 8. NAVEGADORES Y SO (Priority: 8) -->
+                <div class="server-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-desktop"></i> Navegadores</h3>
+                    </div>
+                    <div class="browser-stats" id="browser-os-stats">
+                        <p class="no-data">Cargando...</p>
+                    </div>
+                </div>
+
+                <!-- 9. ANÁLISIS DE CONVERSIÓN (Priority: 9) -->
+                <div class="server-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-funnel"></i> Conversión</h3>
+                    </div>
+                    <div class="conversion-stats" id="conversion-analytics">
+                        <p class="no-data">Cargando...</p>
+                    </div>
+                </div>
+
+                <!-- 10. MÉTRICAS DE RENDIMIENTO (Priority: 10 - Full Width) -->
+                <div class="server-card full-width">
+                    <div class="card-header">
+                        <h3><i class="fas fa-tachometer-alt"></i> Rendimiento</h3>
+                    </div>
+                    <div class="performance-metrics" id="performance-metrics">
+                        <p class="no-data">Cargando...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vista Inventario -->
+        <div id="inventory-view" class="view-content"></div>
+
+        <!-- Vista Herramientas (Compresor de Imágenes) -->
+        <div id="tools-view" class="view-content">
+            <div class="tools-header">
+                <h2><i class="fas fa-wrench"></i> Herramientas</h2>
+                <p class="tools-subtitle">Compresor de imágenes — subir varias imágenes y comprimir a JPG</p>
+            </div>
+
+            <div class="tools-container">
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-file-image"></i> Compresor de Imágenes</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="compressor-controls">
+                            <input id="compressor-input" type="file" accept="image/*" multiple>
+                            <div id="compressor-drop" class="compressor-drop">Arrastra imágenes aquí o haz clic para seleccionar</div>
+                            <div class="compressor-options">
+                                <label>Max ancho: <input id="compress-max-width" type="number" value="600" min="1" max="600"></label>
+                                <label>Max alto: <input id="compress-max-height" type="number" value="600" min="1" max="600"></label>
+                                <label>Calidad (0.1-1): <input id="compress-quality" type="range" min="0.1" max="1" step="0.05" value="0.8"></label>
+                                <label><input id="compress-convert-jpg" type="checkbox" checked> Forzar conversión a JPG</label>
+                                <div class="compressor-buttons">
+                                    <button id="compress-btn" class="btn btn-primary"> <i class="fas fa-compress-alt"></i> Comprimir</button>
+                                    <button id="clear-compressed-btn" class="btn btn-secondary"> <i class="fas fa-trash"></i> Limpiar convertidos</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="compressor-list" class="compressor-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vista Notificaciones - Editor -->
+        <div id="notifications-view" class="view-content">
+            <div class="notifications-header">
+                <h2><i class="fas fa-bell"></i> Editor de Notificaciones</h2>
+                <p class="notifications-subtitle">Edita y personaliza las notificaciones de la tienda Asere</p>
+            </div>
+
+            <div class="notifications-container">
+                <div class="editor-wrapper">
+                    <!-- Panel de Edición -->
+                    <div class="editor-panel">
+                        <div class="editor-card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-pen-square"></i> Formulario de Notificación</h3>
+                            </div>
+
+                            <form class="editor-form" id="notification-editor-form">
+                                <!-- ID Display -->
+                                <div class="form-group id-group">
+                                    <div class="form-label">ID de Notificación</div>
+                                    <div class="id-display-wrapper">
+                                        <div class="id-badge" id="notification-id-display">1</div>
+                                        <button type="button" class="btn btn-secondary" id="generate-notification-id">
+                                            <i class="fas fa-dice"></i> Generar Nuevo
+                                        </button>
+                                    </div>
+                                    <p class="input-help">Se genera automáticamente entre 1-3 para evitar repeticiones</p>
+                                </div>
+
+                                <!-- Título -->
+                                <div class="form-group">
+                                    <label for="notification-title">
+                                        <i class="fas fa-heading"></i> Título (Requerido)
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        id="notification-title" 
+                                        placeholder="Ej: ¡Bienvenido a Asere Shop!" 
+                                        class="input-light"
+                                        maxlength="100"
+                                        required
+                                    >
+                                    <p class="input-help">Máximo 100 caracteres</p>
+                                </div>
+
+                                <!-- Mensaje -->
+                                <div class="form-group">
+                                    <label for="notification-message">
+                                        <i class="fas fa-comment-dots"></i> Mensaje (Requerido)
+                                    </label>
+                                    <textarea 
+                                        id="notification-message" 
+                                        placeholder="Ej: Descubre nuestras ofertas especiales..." 
+                                        class="input-light textarea-light"
+                                        maxlength="500"
+                                        rows="4"
+                                        required
+                                    ></textarea>
+                                    <p class="input-help">Máximo 500 caracteres</p>
+                                </div>
+
+                                <!-- Subtítulo -->
+                                <div class="form-group">
+                                    <label for="notification-subtitle">
+                                        <i class="fas fa-feather"></i> Subtítulo (Opcional)
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        id="notification-subtitle" 
+                                        placeholder="Ej: Oferta válida hasta el 31 de enero" 
+                                        class="input-light"
+                                        maxlength="150"
+                                    >
+                                    <p class="input-help">Máximo 150 caracteres</p>
+                                </div>
+
+                                <!-- Tipo de Notificación -->
+                                <div class="form-group">
+                                    <label for="notification-type">
+                                        <i class="fas fa-tag"></i> Tipo de Notificación
+                                    </label>
+                                    <select id="notification-type" class="select-light">
+                                        <option value="info">ℹ️ Información</option>
+                                        <option value="success">✅ Éxito</option>
+                                        <option value="warning">⚠️ Advertencia</option>
+                                        <option value="error">❌ Error</option>
+                                        <option value="promo">🎁 Promoción</option>
+                                    </select>
+                                </div>
+
+                                <!-- Icono -->
+                                <div class="form-group">
+                                    <div class="form-label">
+                                        <i class="fas fa-icons"></i> Icono de Notificación
+                                    </div>
+                                    <div class="icon-display-wrapper">
+                                        <div class="icon-display" id="current-icon-display">
+                                            <i class="fas fa-bell"></i>
+                                        </div>
+                                        <button type="button" class="btn btn-secondary" id="notification-icon-btn">
+                                            <i class="fas fa-search"></i> Seleccionar Icono
+                                        </button>
+                                    </div>
+                                    <p class="input-help">Font Awesome 6 - Haz clic para seleccionar</p>
+                                </div>
+
+                                <!-- Status Message -->
+                                <div class="notification-editor-status" id="notification-editor-status" style="display: none;"></div>
+
+                                <!-- Botones de Acción -->
+                                <div class="form-actions">
+                                    <button type="button" class="btn btn-primary" id="save-notification-btn">
+                                        <i class="fas fa-save"></i> Guardar Notificación
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" id="reset-notification-btn">
+                                        <i class="fas fa-undo"></i> Recargar Datos
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Panel de Vista Previa -->
+                    <div class="preview-panel">
+                        <div class="preview-card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-eye"></i> Vista Previa en Tiempo Real</h3>
+                            </div>
+
+                            <div class="preview-content" id="notification-preview-container">
+                                <!-- La notificación se renderiza aquí -->
+                                <div id="preview-notification-banner" class="notification-banner">
+                                    <!-- Se llena con updatePreview() -->
+                                </div>
+                            </div>
+
+                            <div class="preview-info">
+                                <p class="preview-note">
+                                    <i class="fas fa-info-circle"></i>
+                                    Este es el preview de cómo se verá la notificación cuando se publique. Los cambios se actualizan en tiempo real.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Selector de Iconos -->
+            <div class="icon-selector-modal" id="icon-selector-modal">
+                <div class="icon-selector-overlay" id="icon-selector-overlay"></div>
+                <div class="icon-selector-content">
+                    <div class="modal-header">
+                        <h3>Seleccionar Icono</h3>
+                        <button class="modal-close" id="icon-selector-close" type="button">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="icon-search-wrapper">
+                            <input 
+                                type="text" 
+                                id="icon-search" 
+                                placeholder="Buscar icono (ej: gift, star, heart)..." 
+                                class="input-light"
+                            >
+                            <i class="fas fa-search search-icon"></i>
+                        </div>
+                        <div class="icons-grid" id="icons-grid">
+                            <!-- Los iconos se generan dinámicamente -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vista Settings -->
+        <div id="settings-view" class="view-content">
+            <div class="settings-header">
+                <h2><i class="fas fa-cog"></i> Ajustes</h2>
+            </div>
+            
+            <div class="settings-container">
+                <!-- GitHub Integration Section -->
+                <div class="settings-card">
+                    <div class="card-header">
+                        <h3><i class="fab fa-github"></i> Integración de Base de datos</h3>
+                        <p class="card-description">Configura tu llave de acceso para guardar datos en tus repositorios</p>
+                    </div>
+                    
+                    <div class="settings-form">
+                        <div class="form-group">
+                            <label for="github-token-input">Token de Acceso</label>
+                            <div class="token-input-wrapper">
+                                <input 
+                                    type="password" 
+                                    id="github-token-input" 
+                                    placeholder="ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+                                    class="input-light token-input"
+                                >
+                                <button class="btn-toggle-token" id="toggle-token-visibility" title="Mostrar/Ocultar token">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <p class="input-help">
+                                <i class="fas fa-info-circle"></i>
+                                Tu llave de acceso se almacena localmente en el navegador por tanto evita darle el telefono a alguien mas que pueda entrar aqui.
+                            </p>
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="btn btn-primary" id="save-github-settings">
+                                <i class="fas fa-save"></i> Guardar Llave de Acceso
+                            </button>
+                            <button class="btn btn-secondary" id="test-github-connection">
+                                <i class="fas fa-plug"></i> Probar Conexión
+                            </button>
+                            <button class="btn btn-danger" id="clear-github-settings">
+                                <i class="fas fa-trash"></i> Limpiar Llave de Acceso
+                            </button>
+                        </div>
+
+                        <div class="settings-status" id="github-settings-status" style="display: none;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    </div>
+
+    <footer class="app-footer">
+        <div class="footer-content">
+            <span>&copy; 2026 Asere Dashboard. Todos los derechos reservados HLab</span>
+            <span class="footer-version">Versión 2.5.1</span>
+            <div id="reloj">
+                
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Guardado en GitHub -->
+    <div class="github-save-modal" id="github-save-modal">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Guardando Datos...</h3>
+                <button class="modal-close" id="modal-close-btn" aria-label="Cerrar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-icon" id="modal-icon">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <div class="modal-message" id="modal-message">
+                    <p class="status-text" id="status-text">Conectando con Base de datos...</p>
+                    <p class="detail-text" id="detail-text">Por favor espera</p>
+                </div>
+                <div class="modal-progress" id="modal-progress" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <p class="progress-text" id="progress-text">0%</p>
+                </div>
+            </div>
+            <div class="modal-footer" id="modal-footer">
+                <button class="btn btn-primary" id="modal-retry-btn" style="display: none;">
+                    <i class="fas fa-redo"></i> Reintentar
+                </button>
+                <button class="btn btn-secondary" id="modal-close-final-btn" style="display: none;">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script type="module" src="Js/app.js" defer></script>
+    <script type="module" src="Js/Modules/Tools/server-panel.js" defer></script>
+
+    <script type="module" src="Js/Modules/Tools/imageCompressor.js" defer></script>
+    <script type="module" src="Js/Modules/Analytics/summaryBot.js" defer></script>
+</body>
+</html>

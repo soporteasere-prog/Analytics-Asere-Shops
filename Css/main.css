@@ -1,0 +1,76 @@
+/* ═══════════════════════════════════════════════════════════
+ * MAIN - Punto de entrada para todos los estilos CSS
+ * Importa todos los módulos en orden lógico
+ * ═══════════════════════════════════════════════════════════ */
+
+/* 1. VARIABLES Y CONFIGURACIÓN */
+@import url('./variables.css');
+
+/* 2. ESTILOS BASE Y RESET */
+@import url('./base.css');
+
+/* 3. HEADER */
+@import url('./header.css');
+
+/* 4. FOOTER */
+@import url('./footer.css');
+
+/* 5. LAYOUT Y ESTRUCTURA */
+@import url('./layout.css');
+
+/* 6. INPUTS Y CONTROLES */
+@import url('./inputs.css');
+
+/* 7. CARDS Y CONTENEDORES */
+@import url('./cards.css');
+
+/* 8. ESTADÍSTICAS Y MÉTRICAS */
+@import url('./stats.css');
+
+/* 9. BOTONES E INTERACCIONES */
+@import url('./buttons.css');
+
+/* 10. LISTADOS Y TABLAS */
+@import url('./listings.css');
+
+/* 11. GRÁFICOS Y VISUALIZACIÓN */
+@import url('./charts.css');
+
+/* 12. ALERTAS Y NOTIFICACIONES */
+@import url('./alerts.css');
+
+/* 13. RESPONSIVE DESIGN */
+@import url('./responsive.css');
+
+/* 14. SIDEBAR MENU */
+@import url('./sidebar.css');
+
+/* 15. SERVER PANEL */
+@import url('./server-panel.css');
+
+/* 16. UTILIDADES Y CLASES HELPER */
+@import url('./utilities.css');
+
+/* ═══════════════════════════════════════════════════════════
+ * ESTRUCTURA MODULAR CSS
+ * ═══════════════════════════════════════════════════════════
+ * 
+ * Este archivo main.css centraliza todos los módulos CSS
+ * del proyecto, manteniendo una estructura clara y ordenada.
+ * 
+ * VENTAJAS DE ESTA ESTRUCTURA:
+ * ✓ Modularidad - Cada componente en su propio archivo
+ * ✓ Mantenibilidad - Fácil de encontrar y modificar estilos
+ * ✓ Escalabilidad - Simple agregar nuevos módulos
+ * ✓ Rendimiento - Se pueden cargar dinámicamente si es necesario
+ * ✓ Colaboración - Múltiples desarrolladores sin conflictos
+ * ✓ Organización - Estructura clara y predecible
+ * 
+ * PALETA DE COLORES - MEJORADA:
+ * - Contraste optimizado (WCAG AA/AAA)
+ * - Sin extremos blanco-azul oscuro
+ * - Tonos armoniosos y profesionales
+ * - Accesibilidad garantizada
+ * 
+ * ═══════════════════════════════════════════════════════════
+ */

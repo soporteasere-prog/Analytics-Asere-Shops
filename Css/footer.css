@@ -1,0 +1,54 @@
+/* ═══════════════════════════════════════════════════════════
+ * FOOTER - Pie de página
+ * ═══════════════════════════════════════════════════════════ */
+
+.app-footer {
+    background: var(--secondary);
+    border-top: 1px solid var(--border-light);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.04);
+    margin-top: auto;
+    z-index: 1000;
+}
+
+.footer-content {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-version {
+    font-weight: 500;
+    color: var(--text);
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .app-footer {
+        padding: 1.25rem 1.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .app-footer {
+        padding: 1rem;
+        font-size: 0.75rem;
+    }
+    
+    .footer-content {
+        gap: 0.5rem;
+    }
+}

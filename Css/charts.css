@@ -1,0 +1,58 @@
+/* ═══════════════════════════════════════════════════════════
+ * CHARTS - Gráficos y contenedores de visualización
+ * ═══════════════════════════════════════════════════════════ */
+
+.chart-container {
+    position: relative;
+    height: 250px;
+    margin-bottom: 1.5rem;
+    background: var(--secondary-dark);
+    border-radius: var(--border-radius-sm);
+    padding: 1.25rem;
+    border: 1px solid var(--border-light);
+}
+
+/* Canvas para gráficos */
+.chart-container canvas {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Tooltips Chart.js */
+.chartjs-tooltip {
+    border-radius: var(--border-radius-sm) !important;
+    padding: 10px !important;
+    box-shadow: var(--shadow-md) !important;
+    background-color: var(--secondary) !important;
+    border: 1px solid var(--border) !important;
+    opacity: 0.98 !important;
+}
+
+.chartjs-tooltip-title {
+    color: var(--text) !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 6px !important;
+}
+
+.chartjs-tooltip-body {
+    color: var(--text-secondary) !important;
+    font-size: 0.85rem !important;
+}
+
+/* Responsive Charts */
+@media (max-width: 768px) {
+    .chart-container {
+        height: 180px;
+        padding: 0.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .chart-container {
+        height: 140px;
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+    }
+}

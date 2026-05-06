@@ -1,0 +1,136 @@
+/* 
+ * ═══════════════════════════════════════════════════════════
+ * VARIABLES Y PALETA DE COLORES - PROFESIONAL Y ARMONIOSA
+ * ═══════════════════════════════════════════════════════════
+ */
+
+:root {
+    /* COLOR PALETTE - Mejorada para evitar contrastes extremos */
+    
+    /* Colores Primarios - Profesionales */
+    --primary: #4CAF50;          /* Verde profesional */
+    --primary-light: #81C784;    /* Variación más clara del primario */
+    --primary-lighter: #C8E6C9;  /* Aún más clara para legibilidad */
+    
+    /* Colores Secundarios - Neutros y armoniosos */
+    --secondary: #FFFFFF;        /* Blanco puro */
+    --secondary-dark: #F5F5F5;   /* Gris muy claro */
+    --secondary-darker: #E0E0E0; /* Gris claro */
+    
+    /* Colores de Acento - Modernos */
+    --accent: #2E7D32;           /* Verde vivo moderno */
+    --accent-light: #66BB6A;     /* Verde claro para hover */
+    --accent-lighter: #A5D6A7;   /* Verde muy claro para backgrounds */
+    
+    /* Colores de Texto - Con buen contraste */
+    --text: #000000;             /* Negro puro */
+    --text-secondary: #333333;   /* Gris oscuro */
+    --text-light: #666666;       /* Gris medio */
+    --text-lighter: #999999;     /* Gris claro */
+    
+    /* Colores de Bordes */
+    --border: #CCCCCC;           /* Gris suave para bordes */
+    --border-light: #E0E0E0;     /* Gris muy claro para bordes suaves */
+    
+    /* Background de Hover */
+    --hover-bg: #E8F5E8;         /* Verde muy claro para hover states */
+    
+    /* Estados de Componentes */
+    --success: #16A34A;          /* Verde exitoso */
+    --success-light: #DCFCE7;    /* Verde muy claro */
+    --error: #16A34A;            /* Verde para error (en lugar de rojo) */
+    --error-light: #DCFCE7;      /* Verde muy claro (en lugar de rojo muy claro) */
+    --warning: #F59E0B;          /* Mantenemos naranja para advertencia (es estándar) */
+    --warning-light: #FEF3C7;    /* Naranja muy claro */
+    --info: #16A34A;             /* Verde para información (en lugar de azul) */
+    --info-light: #DCFCE7;       /* Verde muy claro (en lugar de azul muy claro) */
+    
+    /* Gradientes - Profesionales */
+    --gradient-1: #4CAF50;       /* Inicio verde */
+    --gradient-2: #2E7D32;       /* Fin verde oscuro */
+    --gradient-alt: #388E3C;     /* Alternativo verde */
+    
+    /* Colores Profesionales - Menu Items */
+    --color-finanzas: #388E3C;        /* Verde para Finanzas */
+    --color-finanzas-text: #2E7D32;   /* Verde más oscuro para contraste */
+
+    --color-inventory: #4CAF50;       /* Verde para Inventario */
+    --color-inventory-text: #388E3C;  /* Verde más oscuro para contraste */
+
+    --color-pedidos: #1B5E20;         /* Verde oscuro para Pedidos */
+    --color-pedidos-text: #0D4D0F;    /* Verde más oscuro para contraste */
+
+    --color-tools: #2E7D32;           /* Verde para Herramientas */
+    --color-tools-text: #1B5E20;      /* Verde más oscuro para contraste */
+
+    --color-notifications: #388E3C;   /* Verde para Notificaciones */
+    --color-notifications-text: #2E7D32; /* Verde más oscuro para contraste */
+    
+    /* Sombras - Sutiles */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
+    --shadow-xl: 0 15px 35px rgba(0, 0, 0, 0.15);
+    
+    /* Efectos y Transiciones */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s ease-out;
+    --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Border Radius */
+    --border-radius: 12px;
+    --border-radius-sm: 6px;
+    --border-radius-lg: 16px;
+    
+    /* Espaciado */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 2.5rem;
+    
+    /* Tipografía - incluir fuentes del sistema y fuentes de emoji como fallback */
+    --font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+        'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', 'Apple Color Emoji', sans-serif;
+    --font-mono: 'Menlo', 'Consolas', monospace;
+
+    --color-primary: #4CAF50;
+    --color-success: #4CAF50;
+    --color-warning: #F57C00;
+    --color-danger: #D32F2F;
+    --color-pending: #F57C00;
+    --color-light: #F5F5F5;
+    --color-light-gray: #E0E0E0;
+    --color-border: #CCCCCC;
+    --color-text-primary: #000000;
+    --color-text-secondary: #333333;
+    --color-text-light: #666666;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ═══════════════════════════════════════════════════════════
+ * COLORES OSCUROS PARA FONDOS SIN CONTRASTE EXTREMO
+ * ═══════════════════════════════════════════════════════════ */
+
+body {
+    background: linear-gradient(135deg, #A8E6CF 0%, #81C784 50%, #4CAF50 100%);
+    color: var(--text);
+}
+
+/* ═══════════════════════════════════════════════════════════
+ * ACCESIBILIDAD - SUFICIENTES RELACIONES DE CONTRASTE
+ * ═══════════════════════════════════════════════════════════ */
+
+/* WCAG AA - Contraste mínimo 4.5:1 para texto normal */
+/* WCAG AAA - Contraste mínimo 7:1 para texto pequeño */
+
+/* Verificados:
+ * - Texto oscuro (#111827) en fondo claro (#F8FAFB): ~12:1 ✓
+ * - Texto oscuro (#111827) en fondo verde claro (#DCFCE7): ~15:1 ✓
+ * - Texto gris (#4B5563) en fondo claro (#F8FAFB): ~5:1 ✓
+ * - Acento verde (#16A34A) en fondo blanco (#FFFFFF): ~4.6:1 ✓
+ */

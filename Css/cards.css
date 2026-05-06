@@ -1,0 +1,107 @@
+/* ═══════════════════════════════════════════════════════════
+ * CARDS - Tarjetas y paneles principales
+ * ═══════════════════════════════════════════════════════════ */
+
+.card {
+    background: var(--secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius);
+    padding: 1.75rem;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+    animation: fadeIn 0.3s ease-out forwards;
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent-light);
+}
+
+.card.full-width {
+    grid-column: 1 / -1;
+}
+
+.card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+    color: var(--accent);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.card-title i {
+    font-size: 1.25rem;
+    opacity: 0.9;
+}
+
+/* Card Header con Tabs */
+.card-header-with-tabs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-light);
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+}
+
+.card-header-with-tabs .card-title {
+    margin: 0;
+    flex: 1;
+    min-width: 200px;
+}
+
+/* Responsive Cards */
+@media (max-width: 768px) {
+    .card {
+        padding: 1.25rem;
+    }
+    
+    .card-title {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .card-header-with-tabs {
+        padding: 1rem;
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 0.875rem;
+    }
+    
+    .card-title {
+        font-size: 0.9rem;
+        gap: 0.4rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .card-header-with-tabs {
+        padding: 0.75rem;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .card-header-with-tabs .card-title {
+        min-width: 100%;
+    }
+}

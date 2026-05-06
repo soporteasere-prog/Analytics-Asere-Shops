@@ -1,0 +1,226 @@
+/* Estilos adicionales para el Sistema de Inventario Interno */
+
+/* Botón de Gestionar Inventario en Product Cards */
+.btn-product-inventory {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 0.6rem 0.8rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin-right: 0.5rem;
+}
+
+.btn-product-inventory:hover {
+    background-color: #357abd;
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
+}
+
+.btn-product-inventory:active {
+    transform: scale(0.95);
+}
+
+/* Modal de Inventario */
+#inventory-modal {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    max-width: 500px;
+    width: 90%;
+}
+
+#inventory-modal .modal-header {
+    background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#inventory-modal .modal-title {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#inventory-modal .modal-title i {
+    font-size: 1.3rem;
+}
+
+#inventory-modal .modal-content {
+    padding: 1.5rem;
+}
+
+#inventory-modal .form-group {
+    margin-bottom: 1rem;
+}
+
+#inventory-modal .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+#inventory-modal .form-group input,
+#inventory-modal .form-group textarea {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #e6eef6;
+    border-radius: 0.3rem;
+    font-size: 0.9rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+#inventory-modal .form-group input:focus,
+#inventory-modal .form-group textarea:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+#inventory-modal .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+#inv-modal-loading {
+    text-align: center;
+    color: #4a90e2;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+#inv-modal-loading i {
+    margin-right: 0.5rem;
+}
+
+#inv-modal-last-updated {
+    background-color: #f5f7fa;
+    padding: 0.8rem;
+    border-radius: 0.3rem;
+    font-size: 0.8rem;
+    color: #666;
+    border-left: 3px solid #4a90e2;
+}
+
+/* Indicador de datos cargados */
+.field-has-data {
+    background-color: #f0f8ff !important;
+    border-left: 3px solid #4caf50 !important;
+}
+
+.field-has-data:focus {
+    background-color: #e8f5e9 !important;
+}
+
+/* Botones en Modal de Inventario */
+#inventory-modal .form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e6eef6;
+}
+
+#btn-inv-modal-cancel {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ddd;
+    padding: 0.7rem 1.5rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#btn-inv-modal-cancel:hover {
+    background-color: #e8e8e8;
+    border-color: #999;
+}
+
+#btn-inv-modal-submit {
+    background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#btn-inv-modal-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
+}
+
+#btn-inv-modal-submit:active {
+    transform: translateY(0);
+}
+
+#btn-inv-modal-submit i {
+    font-size: 1rem;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    #inventory-modal {
+        width: 95%;
+        max-width: 100%;
+        max-height: 95vh;
+    }
+
+    #inventory-modal .form-actions {
+        flex-direction: column;
+    }
+
+    #btn-inv-modal-submit,
+    #btn-inv-modal-cancel {
+        width: 100%;
+        text-align: center;
+    }
+
+    .product-actions {
+        display: flex;
+        gap: 0.3rem;
+    }
+
+    .btn-product-inventory,
+    .btn-product-edit,
+    .btn-product-delete {
+        padding: 0.5rem 0.6rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Animación de loading */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#inv-modal-loading i {
+    animation: spin 1s linear infinite;
+}
