@@ -1362,69 +1362,6 @@
     "fecha_hora_entrada": "2026-03-04 09:35:49",
     "origen": "Acceso directo",
     "afiliado": "Ninguno",
-    "duracion_sesion_segundos": 572,
-    "tiempo_carga_pagina_ms": 1599,
-    "nombre_comprador": "Nailin contreras santiesteban",
-    "telefono_comprador": "3395327206",
-    "correo_comprador": "leonormax@gmail.com",
-    "direccion_envio": "Calle Colón #148A entre Ramon ortuño e 24febrero",
-    "compras": [
-      {
-        "producto": "Malta Bucanero",
-        "cantidad": 6,
-        "precio_unitario": 1.15,
-        "precio_total": 6.8999999999999995
-      },
-      {
-        "producto": "Refresco Naranja (330ml)",
-        "cantidad": 6,
-        "precio_unitario": 0.95,
-        "precio_total": 5.699999999999999
-      },
-      {
-        "producto": "Agua Natural Ciego Montero(1.5l)",
-        "cantidad": 2,
-        "precio_unitario": 0.99,
-        "precio_total": 1.98
-      },
-      {
-        "producto": "Refresco Limón (330ml)",
-        "cantidad": 6,
-        "precio_unitario": 0.95,
-        "precio_total": 5.699999999999999
-      },
-      {
-        "producto": "Cerveza Bucanero x und.",
-        "cantidad": 6,
-        "precio_unitario": 1.1,
-        "precio_total": 6.6000000000000005
-      },
-      {
-        "producto": "Paquete de coditos 500g",
-        "cantidad": 2,
-        "precio_unitario": 0.93,
-        "precio_total": 1.86
-      },
-      {
-        "producto": "Cervezas Cristal (355ml)",
-        "cantidad": 6,
-        "precio_unitario": 1.1,
-        "precio_total": 6.6000000000000005
-      }
-    ],
-    "precio_compra_total": "35.34",
-    "navegador": "Chrome",
-    "sistema_operativo": "Android",
-    "tipo_usuario": "Recurrente",
-    "tiempo_promedio_pagina": 0,
-    "fuente_trafico": "Directo"
-  },
-  {
-    "ip": "217.201.240.70",
-    "pais": "Italy",
-    "fecha_hora_entrada": "2026-03-04 09:35:49",
-    "origen": "Acceso directo",
-    "afiliado": "Ninguno",
     "asereshop.com": false,
     "duracion_sesion_segundos": 572,
     "tiempo_carga_pagina_ms": 1599,
@@ -3121,37 +3058,6 @@
   {
     "ip": "0.0.0.0",
     "pais": "Sistema Local",
-    "fecha_hora_entrada": "2026-04-25 04:40:55",
-    "origen": "Terminal Interna",
-    "asereshop.com": false,
-    "afiliado": "Ninguno",
-    "duracion_sesion_segundos": 0,
-    "tiempo_carga_pagina_ms": 0,
-    "nombre_comprador": "Vladimir Cervantes",
-    "telefono_comprador": "+5355267097",
-    "correo_comprador": "",
-    "direccion_envio": "Gonzalo de quezada #102A / Frank Pais y Lucaz ortiz (Recibe: Abel Cervantes)",
-    "compras": [
-      {
-        "producto": "Remesa en USD 100$",
-        "cantidad": 1,
-        "precio_unitario": 110,
-        "precio_total": 110
-      }
-    ],
-    "precio_compra_total": "110.00",
-    "navegador": "Sistema Interno",
-    "sistema_operativo": "Electron",
-    "tipo_usuario": "Recurrente",
-    "tiempo_promedio_pagina": 0,
-    "fuente_trafico": "terminal",
-    "prioridad": "urgente",
-    "metodo_entrega": "domicilio",
-    "id_orden": "ORD-1777106455049"
-  },
-  {
-    "ip": "0.0.0.0",
-    "pais": "Sistema Local",
     "fecha_hora_entrada": "2026-04-06 04:41:06",
     "origen": "Terminal Interna",
     "asereshop.com": false,
@@ -3278,6 +3184,117 @@
     "precio_compra_total": "26.44",
     "navegador": "Chrome",
     "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:2ac0:120:2102:6915:6484:ca1c:c882",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-05-14 12:23:16",
+    "origen": "https://www.asereshops.com/#category=c%C3%A1rnicos",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yanet Cutiño González",
+    "telefono_comprador": "7868607538",
+    "nombre_persona_entrega": "Niurka González Pavón",
+    "telefono_persona_entrega": "53141806",
+    "correo_comprador": "yanetc1201@icloud.com",
+    "direccion_envio": "Calle General #42 fondo %M Fernández y policlinico  Aquiles Espinosa.Detrás del policlinico.",
+    "compras": [
+      {
+        "id": "mng1iq5n-x7v07w1",
+        "name": "Jamón Bravo 2Kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 22.5,
+        "discount": 0
+      },
+      {
+        "id": "moi98wtu-122h0ru",
+        "name": "Chorizo premium vima 3und",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 7.99,
+        "discount": 0
+      },
+      {
+        "id": "moi9fzj0-1x9xrco",
+        "name": "Melocotón en Almibar 3kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 10,
+        "discount": 0
+      },
+      {
+        "id": "moi9h0no-1td6l1y",
+        "name": "Fresa en Almibar 3kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 10,
+        "discount": 0
+      },
+      {
+        "id": "mlq5if2i-yv9djh1",
+        "name": "Atún Premium Vima",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 15.77,
+        "discount": 0
+      },
+      {
+        "id": "mlq6tkin-1cei2l5",
+        "name": "Salsa Cocktail Vima",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 3.37,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-g6p9901",
+        "name": "Mayonesa Victoria (250ml)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 2.27,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777964056235_q6i8vqyew",
+        "name": "Pomo de refresco 1.5lts",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 2.49,
+        "discount": 0
+      },
+      {
+        "id": "mna633yq-1akkie7",
+        "name": "Refresco Instantáneo Piña colada 20lts",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 7.27,
+        "discount": 0
+      },
+      {
+        "id": "mn4ip333-hlfw334",
+        "name": "Chocolate en Polvo Rayan (350g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 5,
+        "discount": 0
+      },
+      {
+        "id": "mmq2ifm4-1y1ya3h",
+        "name": "Caja de cuartos de pollo 40lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 49.99,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "186.19",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
