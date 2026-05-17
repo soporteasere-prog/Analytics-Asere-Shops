@@ -3298,5 +3298,108 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "47.199.195.108",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-05-16 16:23:37",
+    "origen": "https://www.asereshops.com/?ref=AFD823dde",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yesica Gonzalez",
+    "telefono_comprador": "8139543330",
+    "nombre_persona_entrega": "Odelmis Hamilton",
+    "telefono_persona_entrega": "+5354179646",
+    "correo_comprador": "yesicagonzales405@gmail.com",
+    "direccion_envio": "24 de Febrero #51 Entre Andrés Rodríguez y Aquiles Espinosa Reparto Peña",
+    "compras": [
+      {
+        "id": "mna64u78-aliv17k",
+        "name": "Paquete de Mollejas de pollo 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777963926079_utzbwgzvz",
+        "name": "Paquete de Salchicha 10u",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.49,
+        "discount": 0
+      },
+      {
+        "id": "mlq7aq58-1jmj44p",
+        "name": "Pasta de Tomate Vima",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.47,
+        "discount": 0
+      },
+      {
+        "id": "mli2ve9o-a60fi91",
+        "name": "Aceite 900ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.99,
+        "discount": 0
+      },
+      {
+        "id": "mlq6lgga-c3hh86z",
+        "name": "Jabón de Baño",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 0.75,
+        "discount": 0
+      },
+      {
+        "id": "mn7mnt65-6h0qe9w",
+        "name": "Pasta dental 100g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.29,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank4-dez8evc",
+        "name": "Desodorante Keewell 24h",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.47,
+        "discount": 0
+      },
+      {
+        "id": "mn7mmrfk-19rl3s5",
+        "name": "Caramelos de Leche 50u",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.37,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank3-vqyyagj",
+        "name": "Picadillo de pollo (1Kg)",
+        "quantity": 8,
+        "type": "product",
+        "unitPrice": 2.37,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-7lrzeme",
+        "name": "Caja de refresco Naranja",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 17.97,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "63.15",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
