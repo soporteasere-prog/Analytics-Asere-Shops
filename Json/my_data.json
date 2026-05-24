@@ -3401,5 +3401,418 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb90:9189:151:b9d7:3877:819d:97be",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-05-21 16:36:58",
+    "origen": "https://www.asereshops.com/#category=aseo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Mayelin CONTRERAS",
+    "telefono_comprador": "17862568427",
+    "nombre_persona_entrega": "Leonor",
+    "telefono_persona_entrega": "+53 5 4561721",
+    "correo_comprador": "susanlaffita@gmail.com",
+    "direccion_envio": "CALLE COLÓN #167 ENTRE JULIÁN SANTANA Y FRANCISCO VEGA",
+    "compras": [
+      {
+        "id": "prod_1777963852488_1rs856dd0",
+        "name": "Mortadella de Pollo 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.79,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-1pwcv2o",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 9,
+        "discount": 0
+      },
+      {
+        "id": "mmxptnd5-7a8q8vx",
+        "name": "Paquete de papas prefritas 2.5kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 7.99,
+        "discount": 0
+      },
+      {
+        "id": "group_Paquete de íntimas 8u",
+        "name": "Paquete de íntimas 8u",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.17,
+        "discount": 0
+      },
+      {
+        "id": "mnge3p1j-66tiyy1",
+        "name": "Paquete de Galletas Marías 12u (336g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.49,
+        "discount": 0
+      },
+      {
+        "id": "mm0wz21h-u01m57b",
+        "name": "Pollo entero (1800g)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 11.29,
+        "discount": 0
+      },
+      {
+        "id": "mli1qt1h-m8mjr31",
+        "name": "Paquete de Cuartos de Pollo 10lb",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 13.79,
+        "discount": 0
+      },
+      {
+        "id": "mn7mkh9e-mt5qc61",
+        "name": "Harina Vima 1Kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.57,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778847649268_1j5z7ejzk",
+        "name": "Saco de arroz 22.68kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 40.99,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-abqwioi",
+        "name": "Espaguetis (500g)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 0.87,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-q8ffff1",
+        "name": "Frazada de Piso",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1,
+        "discount": 0
+      },
+      {
+        "id": "mon0jma2-dc0h1f1",
+        "name": "Detergente 400g",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.47,
+        "discount": 0
+      },
+      {
+        "id": "mlq6lgga-c3hh86z",
+        "name": "Jabón de Baño",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.75,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-147xys0",
+        "name": "sal (1kg)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 0.97,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "139.00",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://www.asereshops.com/p/mm0wz21h-u01m57b"
+  },
+  {
+    "ip": "79.116.246.172",
+    "pais": "ES",
+    "fecha_hora_entrada": "2026-05-21 18:40:24",
+    "origen": "https://www.asereshops.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yelennys Espinosa",
+    "telefono_comprador": "615837908",
+    "nombre_persona_entrega": "Leticia Moro Lovaina",
+    "telefono_persona_entrega": "58610800",
+    "correo_comprador": "yeliespinosa@live.com",
+    "direccion_envio": "Calle Lorenzo Ortiz #58A / Joaquín agüero y Nicolás Heredia",
+    "compras": [
+      {
+        "id": "mlgzank1-sikt6w1",
+        "name": "Carne de cerdo x Lb",
+        "quantity": 8,
+        "type": "product",
+        "unitPrice": 2.9,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank1-16w7pq2",
+        "name": "Queso blanco x Lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.91,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank4-1oad65v",
+        "name": "Frijoles colorados x lb",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 2.57,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-1gog4gl",
+        "name": "Frijol Negro x Lb",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 1.87,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-psrcao1",
+        "name": "Arroz Blanco (1Kg)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 1.79,
+        "discount": 0
+      },
+      {
+        "id": "mli1qt1h-m8mjr31",
+        "name": "Paquete de Cuartos de Pollo 10lb",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 13.79,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank3-vqyyagj",
+        "name": "Picadillo de pollo (1Kg)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 2.37,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777963852488_1rs856dd0",
+        "name": "Mortadella de Pollo 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.79,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777963926079_utzbwgzvz",
+        "name": "Paquete de Salchicha 10u",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.49,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank1-1s4o3vq",
+        "name": "Carne de Ovejo x Lb",
+        "quantity": 6,
+        "type": "product",
+        "unitPrice": 2.15,
+        "discount": 0
+      },
+      {
+        "id": "mon0jma2-dc0h1f1",
+        "name": "Detergente 400g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.47,
+        "discount": 0
+      },
+      {
+        "id": "mlq6lgga-c3hh86z",
+        "name": "Jabón de Baño",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 0.75,
+        "discount": 0
+      },
+      {
+        "id": "mn7mnt65-6h0qe9w",
+        "name": "Pasta dental 100g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.29,
+        "discount": 0
+      },
+      {
+        "id": "mmq2bugb-i6nwxh1",
+        "name": "Azúcar Blanca (1Kg)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.97,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-1pwcv2o",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 9,
+        "discount": 0
+      },
+      {
+        "id": "mli2ve9o-a60fi91",
+        "name": "Aceite 900ml",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.99,
+        "discount": 0
+      },
+      {
+        "id": "mlq6yah4-1vaviqx",
+        "name": "Leche Condensada Vima",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.73,
+        "discount": 0
+      },
+      {
+        "id": "mlh17sjk-1ltd9c1",
+        "name": "Azúcar Parda x lb",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 1.33,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-g6p9901",
+        "name": "Mayonesa Victoria (250ml)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.27,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-6p9wgln",
+        "name": "Boniato x Lb",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.53,
+        "discount": 0
+      },
+      {
+        "id": "group_Cebolla blanca × lb",
+        "name": "Cebolla blanca × lb",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.371,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-7rrnc41",
+        "name": "Plátano macho x unidad",
+        "quantity": 15,
+        "type": "product",
+        "unitPrice": 0.31,
+        "discount": 0
+      },
+      {
+        "id": "mmq2d45l-1yp3xfb",
+        "name": "Papa x Lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.97,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-104syot",
+        "name": "Mano de plátano burro",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.97,
+        "discount": 0
+      },
+      {
+        "id": "mlqxb74h-15nfelz",
+        "name": "Saco de Carbón",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 6,
+        "discount": 0
+      },
+      {
+        "id": "mlq7aq58-1jmj44p",
+        "name": "Pasta de Tomate Vima",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.47,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank3-1pzccww",
+        "name": "Leche entera en polvo (1kg)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 9.13,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "175.71",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:1700:2087:3410:145c:c714:7676:4102",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-05-23 17:02:30",
+    "origen": "https://www.asereshops.com/#category=lacteos",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yarianna cepero",
+    "telefono_comprador": "7862602650",
+    "nombre_persona_entrega": "Berta",
+    "telefono_persona_entrega": "54058206",
+    "correo_comprador": "yarannacepero3@gmail.com",
+    "direccion_envio": "Calle 27 #26 f /6b y 6",
+    "compras": [
+      {
+        "id": "mlgzank4-gbgcf0r",
+        "name": "Pack de 1kg de jamón bravo y 1kg de queso gouda",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 23.97,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-1lffzlq",
+        "name": "Papel Sanitario 4 rollos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.59,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "25.56",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
