@@ -3814,5 +3814,194 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:2ac0:120:2102:addc:4b22:4983:91ef",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-05-29 16:42:19",
+    "origen": "https://www.asereshops.com/#category=enlatados",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yanet Cutiño González",
+    "telefono_comprador": "7868607538",
+    "nombre_persona_entrega": "Niurka Gonzalez Pavon",
+    "telefono_persona_entrega": "53141806",
+    "correo_comprador": "yanetc1201@icloud.com",
+    "direccion_envio": "Calle General #42 fondo / M Fernández y policlinico Aquiles Espinosa.Punto de referencia(Detrás del policlinico Aquiles Espinoza)",
+    "compras": [
+      {
+        "id": "mn4ip333-hlfw334",
+        "name": "Chocolate en Polvo Rayan (350g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 6.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1780036555259_zhr6x5of2",
+        "name": "Spam de Cerdo (340g)",
+        "quantity": 8,
+        "type": "product",
+        "unitPrice": 2.39,
+        "discount": 0
+      },
+      {
+        "id": "prod_1780036583010_2sg3ync8t",
+        "name": "Spam de Res (340g)",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 2.39,
+        "discount": 0
+      },
+      {
+        "id": "mng1iq5n-x7v07w1",
+        "name": "Jamón Bravo 2Kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 22.5,
+        "discount": 0
+      },
+      {
+        "id": "prod_1779860298512_ef39veear",
+        "name": "Salchichas Coctel 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 8.97,
+        "discount": 0
+      },
+      {
+        "id": "mlq5if2i-yv9djh1",
+        "name": "Atún en aceite vegetal",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 12.99,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "100.11",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:58a:8602:8330:3b80:d76d:9a05:2d51",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-05-30 14:30:55",
+    "origen": "https://www.asereshops.com/#category=c%C3%A1rnicos",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Juan Carlos Heredia Lopez",
+    "telefono_comprador": "3055094055",
+    "nombre_persona_entrega": "Juan Emilio Marrero Nuñez",
+    "telefono_persona_entrega": "+53 5 8749816",
+    "correo_comprador": "juanka9205@gmail.com",
+    "direccion_envio": "Calle Menocal #39 entre Carretera central y lorenzo ortiz, rpto Primero",
+    "compras": [
+      {
+        "id": "mlgzank3-1pzccww",
+        "name": "Leche entera en polvo (1kg)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 8.97,
+        "discount": 0
+      },
+      {
+        "id": "mmq2wkzx-c7qedfj",
+        "name": "Café Sello Rojo",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 9,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-1pwcv2o",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 9,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "26.97",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Único",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:880a:2721:1ab0:c8ec:5414:3a50:b730",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-06-02 13:27:52",
+    "origen": "https://www.asereshops.com/#category=aderezos",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yanet Cutiño González",
+    "telefono_comprador": "7868607538",
+    "nombre_persona_entrega": "Niurka González Pavón",
+    "telefono_persona_entrega": "53141806",
+    "correo_comprador": "yanetc1201@icloud.com",
+    "direccion_envio": "Calle General #42 fondo / M Fernández y policlinico Aquiles Espinosa.Punto de referencia (Detrás del policlinico Aquiles Espinosa)",
+    "compras": [
+      {
+        "id": "prod_1780383383242_ntyipx145",
+        "name": "Troncho de Pescado en Aceite Vegetal (425g)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 3.05,
+        "discount": 0
+      },
+      {
+        "id": "prod_1780384228413_57eqncwl0",
+        "name": "Queso Crema Vima 2Kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 29.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1780385531960_qeigw4bqk",
+        "name": "Pasta Tomate Vima 3Kg",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 8.09,
+        "discount": 0
+      },
+      {
+        "id": "prod_1780384859618_oqcrpbgqc",
+        "name": "Mantequilla Adorita con Sal 250g",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.49,
+        "discount": 0
+      },
+      {
+        "id": "mn7miy5q-1yskdi7",
+        "name": "Mayonesa Light Vima (450ml)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 3.79,
+        "discount": 0
+      },
+      {
+        "id": "mlq6tkin-1cei2l5",
+        "name": "Salsa Cocktail «Vima» (225ml)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "84.70",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
