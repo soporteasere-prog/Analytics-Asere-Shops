@@ -8,6 +8,7 @@ import {
     fileToDataURL,
     base64ToDataURL,
     sanitizeFileName,
+    normalizeSearchString,
     objectToBase64,
     base64ToObject,
     isValidImageFile,
@@ -43,6 +44,23 @@ export class ProductManager {
         this._lastInventoryLoadTs = null; // timestamp de última carga de inventarios
 
         this.loadStagedChanges();
+    }
+
+    /**
+     * Deduplica cambios staged manteniendo el último cambio por productId y tipo.
+     * @param {Array} changes
+     * @returns {Array}
+     */
+    _dedupeStagedChanges(changes = []) {
+        const latestByKey = new Map();
+        for (const change of changes) {
+            const key = `${change.productId}::${change.type}`;
+            const previous = latestByKey.get(key);
+            if (!previous || change.timestamp >= previous.timestamp) {
+                latestByKey.set(key, change);
+            }
+        }
+        return Array.from(latestByKey.values());
     }
 
     /**
@@ -534,6 +552,49 @@ export class ProductManager {
             }
         }
 
+        // Evitar duplicados por el mismo producto y tipo de cambio
+        if (['new', 'modify'].includes(type)) {
+            const existingIndex = this.stagedChanges.findIndex(c => c.productId === productData.id && c.type === type);
+            if (existingIndex !== -1) {
+                const existing = this.stagedChanges[existingIndex];
+                if (change.hasNewImage && existing.imageKey && existing.imageKey !== change.imageKey) {
+                    await this.stagingDB.deleteImageFromIDB(existing.imageKey);
+                }
+                existing.productData = JSON.parse(JSON.stringify(productData));
+                existing.timestamp = Date.now();
+                existing.hasNewImage = change.hasNewImage || existing.hasNewImage;
+                existing.imageKey = change.hasNewImage ? change.imageKey : existing.imageKey;
+                existing.originalProductName = existing.originalProductName || originalProductName;
+                this.saveStagedChanges();
+                return existing;
+            }
+        }
+
+        if (type === 'delete') {
+            const existing = this.stagedChanges.find(c => c.productId === productData.id);
+            if (existing) {
+                if (existing.type === 'new') {
+                    if (existing.imageKey) {
+                        await this.stagingDB.deleteImageFromIDB(existing.imageKey);
+                    }
+                    this.stagedChanges = this.stagedChanges.filter(c => c.id !== existing.id);
+                    this.saveStagedChanges();
+                    return null;
+                }
+                if (existing.type === 'modify') {
+                    if (existing.imageKey) {
+                        await this.stagingDB.deleteImageFromIDB(existing.imageKey);
+                    }
+                    this.stagedChanges = this.stagedChanges.filter(c => c.id !== existing.id);
+                }
+            }
+
+            const existingDeleteIndex = this.stagedChanges.findIndex(c => c.productId === productData.id && c.type === 'delete');
+            if (existingDeleteIndex !== -1) {
+                return this.stagedChanges[existingDeleteIndex];
+            }
+        }
+
         // Guardar cambio en staged_changes
         this.stagedChanges.push(change);
         this.saveStagedChanges();
@@ -998,7 +1059,8 @@ export class ProductManager {
      */
     saveStagedChanges() {
         // Solo guardar metadatos, no imágenes
-        const stagedMetadata = this.stagedChanges.map(change => ({
+        const dedupedChanges = this._dedupeStagedChanges(this.stagedChanges);
+        const stagedMetadata = dedupedChanges.map(change => ({
             id: change.id,
             type: change.type,
             timestamp: change.timestamp,
@@ -1019,10 +1081,10 @@ export class ProductManager {
         if (stored) {
             try {
                 const metadata = JSON.parse(stored);
-                this.stagedChanges = metadata.map(meta => ({
+                this.stagedChanges = this._dedupeStagedChanges(metadata.map(meta => ({
                     ...meta,
                     id: meta.id || `change_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
-                }));
+                })));
                 console.log(`${this.stagedChanges.length} cambios cargados desde localStorage`);
             } catch (error) {
                 console.warn('Error cargando cambios:', error);
@@ -1054,8 +1116,9 @@ export class ProductManager {
      * @returns {Array}
      */
     searchProducts(searchTerm) {
-        const term = searchTerm.toLowerCase();
-        return this.products.filter(p => p.searchText.includes(term));
+        const term = normalizeSearchString(searchTerm);
+        if (!term) return this.products;
+        return this.products.filter(p => p.searchText && p.searchText.includes(term));
     }
 
     /**

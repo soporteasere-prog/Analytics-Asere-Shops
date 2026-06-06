@@ -3,7 +3,7 @@
  * Genera HTML dinámico para productos, modales y staging panel
  */
 
-import { createObjectURL, revokeObjectURL, base64ToDataURL } from './inventoryUtils.js';
+import { createObjectURL, revokeObjectURL, base64ToDataURL, normalizeSearchString } from './inventoryUtils.js';
 import { formatDate } from '../../Core/utils.js';
 import { GitHubSaveModal } from '../Github/githubSaveModal.js';
 import { GitHubImagesModal } from '../Github/githubImagesModal.js';
@@ -281,7 +281,7 @@ export class InventoryUIRenderer {
      */
     renderProductsGrid(products = null) {
         const grid = document.getElementById('products-grid');
-        const productsToRender = products || this.productManager.products;
+        const productsToRender = products || this.applyProductFilters();
 
         if (!grid) return;
 
@@ -397,6 +397,7 @@ export class InventoryUIRenderer {
                     <div class="product-category">${product.categoria}</div>
                     <div class="product-description">${product.descripcion || 'Sin descripción'}</div>
                     ${dateHtml}
+                    ${isModified ? `<div class="product-change-summary">${this.getProductChangeSummary(product)}</div>` : ''}
                     <div class="product-footer">
                         <div class="product-price">
                             <div class="product-price-final">$${product.precioFinal.toFixed(2)}</div>
@@ -620,17 +621,26 @@ export class InventoryUIRenderer {
 
         // Construir HTML de cambios
         const changesHTML = changes.map(change => `
-            <div class="change-item ${change.type} " data-change-id="${change.id}">
-                <div style="display: flex; align-items: center; gap: 0.75rem;">
-                    <span class="change-type ${change.type}">
-                        <i class="fas ${this.getChangeIcon(change.type)}"></i>
-                        ${change.type.charAt(0).toUpperCase() + change.type.slice(1)} ${change.kind === 'pack' ? '(Pack)' : ''}
-                    </span>
-                    <div class="change-product-name">${change.productData.nombre}</div>
-                    <div style="margin-left:auto; color:#7f8c8d; font-size:0.85rem;">
-                        ${change.timestamp ? formatDate(new Date(change.timestamp)) : ''}
+            <div class="change-item ${change.type}" data-change-id="${change.id}">
+                <div class="change-item-header">
+                    <div>
+                        <span class="change-type ${change.type}">
+                            <i class="fas ${this.getChangeIcon(change.type)}"></i>
+                            ${change.type.charAt(0).toUpperCase() + change.type.slice(1)} ${change.kind === 'pack' ? '(Pack)' : ''}
+                        </span>
+                        <div class="change-product-name">${change.productData.nombre}</div>
+                        <div class="change-item-meta">
+                            <span>${change.productData.categoria || 'Categoría desconocida'}</span>
+                            <span>•</span>
+                            <span>$${change.productData.precio !== undefined && change.productData.precio !== null ? parseFloat(change.productData.precio).toFixed(2) : '—'}</span>
+                            <span>•</span>
+                            <span>${change.productData.oferta ? 'Oferta' : 'Sin oferta'}</span>
+                        </div>
                     </div>
-                    ${change.hasNewImage ? '<i class="fas fa-image" style="color: #3498db; font-size: 0.9rem;"></i>' : ''}
+                    <div class="change-item-tagline">
+                        ${change.hasNewImage ? '<span class="change-image-flag"><i class="fas fa-image"></i> Imagen</span>' : ''}
+                        <span class="change-timestamp">${change.timestamp ? formatDate(new Date(change.timestamp)) : ''}</span>
+                    </div>
                 </div>
                 <div class="change-actions">
                     <button class="btn-view-change" data-change-id="${change.id}"><i class="fas fa-eye"></i> Ver</button>
@@ -639,18 +649,17 @@ export class InventoryUIRenderer {
                         <i class="fas fa-times"></i> Descartar
                     </button>
                 </div>
-                <div class="change-preview" id="change-preview-${change.id}" style="display:none; margin-top:0.5rem; padding:0.75rem; border:1px solid #eee; border-radius:4px;">
-                    <div style="display:flex; gap:0.75rem; align-items:flex-start;">
-                        <div style="flex:1;">
-                            <div><strong>Categoría:</strong> ${change.productData.categoria || '—'}</div>
-                            <div><strong>Precio:</strong> $${change.productData.precio || '—'}</div>
-                            <div><strong>Descuento:</strong> ${change.productData.descuento || 0}%</div>
-                            <div><strong>Oferta:</strong> ${change.productData.oferta ? 'Sí' : 'No'}</div>
-                            <div style="margin-top:0.5rem;"><strong>Descripción:</strong><div>${change.productData.descripcion || '—'}</div></div>
+                <div class="change-preview" id="change-preview-${change.id}">
+                    <div class="change-preview-grid">
+                        <div class="change-preview-details">
+                            <div class="change-preview-row"><span>Categoria:</span><strong>${change.productData.categoria || '—'}</strong></div>
+                            <div class="change-preview-row"><span>Precio:</span><strong>$${change.productData.precio !== undefined && change.productData.precio !== null ? parseFloat(change.productData.precio).toFixed(2) : '—'}</strong></div>
+                            <div class="change-preview-row"><span>Descuento:</span><strong>${change.productData.descuento || 0}%</strong></div>
+                            <div class="change-preview-row"><span>Oferta:</span><strong>${change.productData.oferta ? 'Sí' : 'No'}</strong></div>
+                            <div class="change-preview-row"><span>Disponible:</span><strong>${change.productData.disponibilidad ? 'Sí' : 'No'}</strong></div>
+                            <div class="change-preview-description"><strong>Descripción</strong><p>${change.productData.descripcion || '—'}</p></div>
                         </div>
-                        <div style="width:120px;">
-                            <div id="change-preview-img-${change.id}"></div>
-                        </div>
+                        <div class="change-preview-image" id="change-preview-img-${change.id}"></div>
                     </div>
                 </div>
             </div>
@@ -1652,14 +1661,11 @@ export class InventoryUIRenderer {
         // Búsqueda
         const searchInput = document.getElementById('search-products');
         if (searchInput) {
-            searchInput.addEventListener('input', (e) => {
-                const q = e.target.value || '';
+            searchInput.addEventListener('input', () => {
                 if (this.currentView === 'packs' && this.packManager) {
-                    const results = this.packManager.searchPacks(q);
-                    this.renderPacksGrid(results);
+                    this.renderPacksGrid();
                 } else {
-                    const results = this.productManager.searchProducts(q);
-                    this.renderProductsGrid(results);
+                    this.renderProductsGrid();
                 }
             });
         }
@@ -1668,14 +1674,11 @@ export class InventoryUIRenderer {
         this.updateCategoryFilter();
         const categoryFilter = document.getElementById('filter-category');
         if (categoryFilter) {
-            categoryFilter.addEventListener('change', (e) => {
-                const val = e.target.value;
+            categoryFilter.addEventListener('change', () => {
                 if (this.currentView === 'packs' && this.packManager) {
-                    const results = this.packManager.filterByCategory(val);
-                    this.renderPacksGrid(results);
+                    this.renderPacksGrid();
                 } else {
-                    const results = this.productManager.filterByCategory(val);
-                    this.renderProductsGrid(results);
+                    this.renderProductsGrid();
                 }
             });
         }
@@ -1683,31 +1686,16 @@ export class InventoryUIRenderer {
         // Filtro por modificado / nuevos
         const modifiedFilter = document.getElementById('filter-modified');
         if (modifiedFilter) {
-            modifiedFilter.addEventListener('change', (e) => {
-                const v = e.target.value;
-                let results = this.productManager.products;
-                if (v === 'modified') {
-                    const modifiedIds = new Set(this.productManager.getStagedChanges().filter(c=>c.type==='modify').map(c=>c.productId));
-                    results = results.filter(p => modifiedIds.has(p.id));
-                } else if (v === 'new') {
-                    const newIds = new Set(this.productManager.getStagedChanges().filter(c=>c.type==='new').map(c=>c.productId));
-                    results = results.filter(p => newIds.has(p.id));
-                }
-                this.renderProductsGrid(results);
+            modifiedFilter.addEventListener('change', () => {
+                this.renderProductsGrid();
             });
         }
 
         // Sort
         const sortSelect = document.getElementById('sort-products');
         if (sortSelect) {
-            sortSelect.addEventListener('change', (e) => {
-                const v = e.target.value;
-                let results = [...this.productManager.products];
-                if (v === 'price_desc') results.sort((a,b)=>b.precioFinal - a.precioFinal);
-                else if (v === 'price_asc') results.sort((a,b)=>a.precioFinal - b.precioFinal);
-                else if (v === 'date_modified') results.sort((a,b)=>new Date(b.modified_at || 0) - new Date(a.modified_at || 0));
-                else if (v === 'date_created') results.sort((a,b)=>new Date(b.created_at || 0) - new Date(a.created_at || 0));
-                this.renderProductsGrid(results);
+            sortSelect.addEventListener('change', () => {
+                this.renderProductsGrid();
             });
         }
 
@@ -1810,6 +1798,94 @@ export class InventoryUIRenderer {
     getActiveManager() {
         if (this.currentView === 'packs' && this.packManager) return this.packManager;
         return this.productManager;
+    }
+
+    getActiveProductFilters() {
+        const searchInput = document.getElementById('search-products');
+        const categoryFilter = document.getElementById('filter-category');
+        const modifiedFilter = document.getElementById('filter-modified');
+        const sortSelect = document.getElementById('sort-products');
+
+        return {
+            searchTerm: searchInput?.value?.trim() || '',
+            category: categoryFilter?.value || '',
+            modified: modifiedFilter?.value || 'all',
+            sort: sortSelect?.value || 'default'
+        };
+    }
+
+    applyProductFilters(products = null) {
+        const allProducts = Array.isArray(products) ? products : (this.productManager?.products || []);
+        const { searchTerm, category, modified, sort } = this.getActiveProductFilters();
+        let filtered = [...allProducts];
+
+        if (searchTerm) {
+            const normalizedTerm = normalizeSearchString(searchTerm);
+            filtered = filtered.filter(product => product.searchText && product.searchText.includes(normalizedTerm));
+        }
+
+        if (category && category !== 'todos') {
+            filtered = filtered.filter(product => String(product.categoria || '').toLowerCase() === category.toLowerCase());
+        }
+
+        if (modified === 'modified') {
+            const modifiedIds = new Set(this.productManager.getStagedChanges().filter(c => c.type === 'modify').map(c => c.productId));
+            filtered = filtered.filter(product => modifiedIds.has(product.id));
+        } else if (modified === 'new') {
+            const newIds = new Set(this.productManager.getStagedChanges().filter(c => c.type === 'new').map(c => c.productId));
+            filtered = filtered.filter(product => newIds.has(product.id));
+        }
+
+        if (sort === 'price_desc') {
+            filtered.sort((a, b) => (b.precioFinal || 0) - (a.precioFinal || 0));
+        } else if (sort === 'price_asc') {
+            filtered.sort((a, b) => (a.precioFinal || 0) - (b.precioFinal || 0));
+        } else if (sort === 'date_modified') {
+            filtered.sort((a, b) => new Date(b.modified_at || 0) - new Date(a.modified_at || 0));
+        } else if (sort === 'date_created') {
+            filtered.sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0));
+        }
+
+        return filtered;
+    }
+
+    getProductChangeSummary(product) {
+        if (!product || !this.productManager) return '';
+
+        const stagedChange = this.productManager.getStagedChanges().find(c => c.productId === product.id && c.type === 'modify');
+        if (!stagedChange || !stagedChange.productData) return '';
+
+        const original = product;
+        const updated = stagedChange.productData;
+        const diffs = [];
+
+        const compareField = (label, key, formatter = (value) => value !== undefined && value !== null ? String(value) : '—') => {
+            const originalValue = original[key];
+            const updatedValue = updated[key];
+            if (String(originalValue) !== String(updatedValue)) {
+                diffs.push(`${label}: ${formatter(originalValue)} → ${formatter(updatedValue)}`);
+            }
+        };
+
+        compareField('Nombre', 'nombre', (v) => v || '—');
+        compareField('Categoría', 'categoria', (v) => v || '—');
+        compareField('Precio', 'precio', (v) => v !== undefined && v !== null ? `$${parseFloat(v).toFixed(2)}` : '—');
+        compareField('Descuento', 'descuento', (v) => v !== undefined && v !== null ? `${parseFloat(v).toFixed(2)}%` : '—');
+        compareField('Descripción', 'descripcion', (v) => v ? v : '—');
+        compareField('Disponibilidad', 'disponibilidad', (v) => v ? 'Disponible' : 'No disponible');
+        compareField('Nuevo', 'nuevo', (v) => v ? 'Sí' : 'No');
+        compareField('Oferta', 'oferta', (v) => v ? 'Sí' : 'No');
+        compareField('Más vendido', 'mas_vendido', (v) => v ? 'Sí' : 'No');
+
+        if (stagedChange.hasNewImage) {
+            diffs.push('Imagen actualizada');
+        }
+
+        if (diffs.length === 0) {
+            return 'Cambio pendiente: detalles guardados en staging.';
+        }
+
+        return diffs.slice(0, 3).join(' · ');
     }
 
     updateCategoryFilter() {

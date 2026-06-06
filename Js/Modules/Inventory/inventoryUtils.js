@@ -87,6 +87,20 @@ export function sanitizeFileName(fileName) {
 }
 
 /**
+ * Normaliza un texto para búsqueda, quitando tildes y caracteres diacríticos.
+ * @param {string} value
+ * @returns {string}
+ */
+export function normalizeSearchString(value = '') {
+    return String(value)
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .toLowerCase();
+}
+
+/**
  * Convierte un objeto a JSON Base64
  * @param {Object} obj - Objeto a convertir
  * @returns {string} - JSON codificado en Base64 con UTF-8
