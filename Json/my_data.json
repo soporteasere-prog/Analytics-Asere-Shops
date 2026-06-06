@@ -4161,5 +4161,195 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "71.44.156.44",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-06-06 11:35:52",
+    "origen": "https://www.asereshops.com/p/moe4v4df-1bgw0pm",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yisel Cruz Pérez",
+    "telefono_comprador": "8138930040",
+    "nombre_persona_entrega": "Manuel Santana Flores Ramírez",
+    "telefono_persona_entrega": "51663170",
+    "correo_comprador": "yiselc537@gmail.com",
+    "direccion_envio": "Becerra Las Tunas",
+    "compras": [
+      {
+        "id": "mng1iq5n-x7v07w1",
+        "name": "Jamón Bravo 2Kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 19.97,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-1pwcv2o",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 9,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-7lrzeme",
+        "name": "Caja de Refresco de Naranja 24u",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 16.39,
+        "discount": 0
+      },
+      {
+        "id": "moe4v4df-1bgw0pm",
+        "name": "Garbanzos extra 540g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.49,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "50.34",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://www.google.com/"
+  },
+  {
+    "ip": "2607:2ac0:120:2102:9169:196:f754:76a0",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-06-06 12:23:28",
+    "origen": "https://www.asereshops.com/#category=aderezos",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yanet Cutiño González",
+    "telefono_comprador": "7868607538",
+    "nombre_persona_entrega": "Niurka González Pavón",
+    "telefono_persona_entrega": "53141806",
+    "correo_comprador": "yanetc1201@icloud.com",
+    "direccion_envio": "Calle General #42 fondo / M Fernández y policlinico Aquiles Espinosa.Punto de referencia (Detrás del policlinico Aquiles Espinosa)",
+    "compras": [
+      {
+        "id": "prod_1780640361640_rtb1nv6qh",
+        "name": "Pomo de Comino",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 5.19,
+        "discount": 0
+      },
+      {
+        "id": "prod_1780638802643_qxxqbggxv",
+        "name": "Croqueta Bacalao (500g)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 3.19,
+        "discount": 0
+      },
+      {
+        "id": "mng1iq5n-x7v07w1",
+        "name": "Jamón Bravo 2Kg",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 19.97,
+        "discount": 0
+      },
+      {
+        "id": "mml2tcre-1yodt0e",
+        "name": "Queso Gouda Vima 3Kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 34.970346,
+        "discount": 5.46
+      },
+      {
+        "id": "mlipxcrm-1ev233g",
+        "name": "Leche Evaporada",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 1.8900000000000001,
+        "discount": 24.4
+      },
+      {
+        "id": "mlq6yah4-1vaviqx",
+        "name": "Leche Condensada",
+        "quantity": 6,
+        "type": "product",
+        "unitPrice": 1.49,
+        "discount": 0
+      },
+      {
+        "id": "prod_1780733066794_rrpiuy0xc",
+        "name": "Caja x 24 Néctar de Mango 🥭 ‘Nezka’ (250ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 24.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1779282841071_vmhdhcagl",
+        "name": "Caja de Malta Sunchy 24u",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 21.49,
+        "discount": 0
+      },
+      {
+        "id": "prod_1780384859618_oqcrpbgqc",
+        "name": "Mantequilla Adorita con Sal 250g",
+        "quantity": 6,
+        "type": "product",
+        "unitPrice": 1.29,
+        "discount": 0
+      },
+      {
+        "id": "prod_1780036555259_zhr6x5of2",
+        "name": "Spam de Cerdo (340g)",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "mlq5if2i-yv9djh1",
+        "name": "Atún en aceite vegetal",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 12.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1780036769803_qwbur3m87",
+        "name": "Galletas de Soda con Mantequilla Doricas",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 4.99,
+        "discount": 0
+      },
+      {
+        "id": "mlq6tkin-1cei2l5",
+        "name": "Salsa Cocktail «Vima» (225ml)",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 2.49,
+        "discount": 0
+      },
+      {
+        "id": "prod_1780385686701_42swpa61r",
+        "name": "Mayonesa Casera Vima 450ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.89,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "248.82",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
