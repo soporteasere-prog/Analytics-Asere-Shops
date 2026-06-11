@@ -4351,5 +4351,36 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:586:d102:ce10:98bf:327e:ef08:ac6",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-06-11 06:55:40",
+    "origen": "https://www.asereshops.com/#packs",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Ileana Vila Rodriguez",
+    "telefono_comprador": "(305) 970-7233",
+    "nombre_persona_entrega": "Ana Maria Gerez",
+    "telefono_persona_entrega": "+53 63060062",
+    "correo_comprador": "vilarodriguez61@gmail.com",
+    "direccion_envio": "Edificio 22, Apt  E1, Buena Vista,Las Tunas",
+    "compras": [
+      {
+        "id": "7",
+        "name": "Pack «El Salve»",
+        "quantity": 1,
+        "type": "pack",
+        "unitPrice": 10.47,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "10.47",
+    "navegador": "Samsung Browser",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
