@@ -4382,5 +4382,44 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:2ac0:120:2102:6d00:5459:370b:dd9",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-06-12 12:41:01",
+    "origen": "https://www.asereshops.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yanet Cutiño González",
+    "telefono_comprador": "7868607538",
+    "nombre_persona_entrega": "Niurka González Pavón",
+    "telefono_persona_entrega": "53141806",
+    "correo_comprador": "yanetc1201@icloud.com",
+    "direccion_envio": "Calle General # 42 fondo / M Fernández y policlinico Aquiles Espinosa.Punto de referencia( Detrás del policlinico Aquiles Espinosa)",
+    "compras": [
+      {
+        "id": "prod_1780895835637_y23whc4eu",
+        "name": "Helado Crema 4Lt",
+        "quantity": 6,
+        "type": "product",
+        "unitPrice": 11.59,
+        "discount": 0
+      },
+      {
+        "id": "prod_1780897671315_ptr7g20yt",
+        "name": "Malta Guajira 1.5Lt",
+        "quantity": 8,
+        "type": "product",
+        "unitPrice": 3.14,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "94.66",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
