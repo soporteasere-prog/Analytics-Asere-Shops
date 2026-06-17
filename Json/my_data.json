@@ -4421,5 +4421,76 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2804:22a0:6601:400:d865:dbcf:e1c2:daeb",
+    "pais": "BR",
+    "fecha_hora_entrada": "2026-06-16 09:21:50",
+    "origen": "https://www.asereshops.com/p/mli2ve9o-a60fi91",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Melissa Parra",
+    "telefono_comprador": "+5561981922194",
+    "nombre_persona_entrega": "Ricardo Parra",
+    "telefono_persona_entrega": "58141859",
+    "correo_comprador": "melyparra981227@gmail.com",
+    "direccion_envio": "Ciro Redondo #79 %Ramón Ortuño y 24 de febrero Reparto Santo Domingo",
+    "compras": [
+      {
+        "id": "mlgzank3-1pzccww",
+        "name": "Leche entera en polvo (1kg)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 8.89,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-1pwcv2o",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 6.49,
+        "discount": 0
+      },
+      {
+        "id": "mm0wy3wx-1jvjivz",
+        "name": "Pechuga de pollo (2Kg)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 10.49,
+        "discount": 0
+      },
+      {
+        "id": "mli2ve9o-a60fi91",
+        "name": "Aceite 900ml",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 3.39,
+        "discount": 0
+      },
+      {
+        "id": "prod_1780383292523_450mmhapf",
+        "name": "Frijoles Negros (1Kg)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.89,
+        "discount": 0
+      },
+      {
+        "id": "prod_1780384859618_oqcrpbgqc",
+        "name": "Mantequilla Adorita con Sal 250g",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.29,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "45.19",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
