@@ -4563,5 +4563,60 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb90:910a:857e:9c40:fa69:8dd5:a398",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-06-20 15:38:10",
+    "origen": "https://www.asereshops.com/p/mlgzank1-16w7pq2",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Ileana Vila Rodriguez",
+    "telefono_comprador": "(305) 970-7233",
+    "nombre_persona_entrega": "Ana Maria Gerez",
+    "telefono_persona_entrega": "+53 63060062",
+    "correo_comprador": "vilarodriguez61@gmail.com",
+    "direccion_envio": "Edificio 22, Apt  E1, Buena Vista,Las Tunas",
+    "compras": [
+      {
+        "id": "mlgzank3-1pzccww",
+        "name": "Leche entera en polvo (1kg)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 8.89,
+        "discount": 0
+      },
+      {
+        "id": "mli2ve9o-a60fi91",
+        "name": "Aceite 900ml",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.97,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-psrcao1",
+        "name": "Arroz Blanco (1Kg)",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.79,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank1-16w7pq2",
+        "name": "Queso blanco x Lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.29,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "37.46",
+    "navegador": "Samsung Browser",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
