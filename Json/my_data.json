@@ -4492,5 +4492,76 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:58a:8602:8330:9400:100a:129e:9878",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-06-18 08:48:13",
+    "origen": "https://www.asereshops.com/#category=c%C3%A1rnicos",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Juan Carlos Heredia Lopez",
+    "telefono_comprador": "3055094055",
+    "nombre_persona_entrega": "Juan Emilio Marrero Nuñez",
+    "telefono_persona_entrega": "+53 5 8749816",
+    "correo_comprador": "juanka9205@gmail.com",
+    "direccion_envio": "Carretera Menocal #39 entre Carretera Central y Lorenzo ortiz, Rpto Primero",
+    "compras": [
+      {
+        "id": "mlqxb74h-15nfelz",
+        "name": "Saco de Carbón",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 7,
+        "discount": 0
+      },
+      {
+        "id": "mm46rkpk-1nsu79h",
+        "name": "Fideos 500g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.97,
+        "discount": 0
+      },
+      {
+        "id": "moe4v4df-1bgw0pm",
+        "name": "Garbanzos extra 540g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.23,
+        "discount": 0
+      },
+      {
+        "id": "prod_1780385531960_qeigw4bqk",
+        "name": "Pasta Tomate Vima 3Kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 8.09,
+        "discount": 0
+      },
+      {
+        "id": "moi9lh1q-18m53iy",
+        "name": "Caja de Jugo La Estancia Sabor Manzana 27u",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 16.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1781736148253_7fbquy0yf",
+        "name": "Paquete de muslos de pollo (2Kg)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 5.99,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "65.47",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
