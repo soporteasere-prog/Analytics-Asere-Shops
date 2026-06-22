@@ -4618,5 +4618,36 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "158.148.250.149",
+    "pais": "IT",
+    "fecha_hora_entrada": "2026-06-22 15:41:46",
+    "origen": "https://www.asereshops.com/p/prod_1780895835637_y23whc4eu",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Nailin contreras santiesteban",
+    "telefono_comprador": "3395327206",
+    "nombre_persona_entrega": "Erioth Ramirez",
+    "telefono_persona_entrega": "59469194",
+    "correo_comprador": "leonormax@gmail.com",
+    "direccion_envio": "CALLE COLON 167",
+    "compras": [
+      {
+        "id": "prod_1780895835637_y23whc4eu",
+        "name": "Helado Crema 4Lt",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 11.59,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "23.18",
+    "navegador": "Samsung Browser",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
