@@ -4649,5 +4649,123 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:58a:8602:8330:1aa:eab7:c7d2:8585",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-01 11:17:14",
+    "origen": "https://www.asereshops.com/#category=lacteos",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Juan Carlos Heredia Lopez",
+    "telefono_comprador": "3055094055",
+    "nombre_persona_entrega": "Juan Emilio Marrero Nuñez",
+    "telefono_persona_entrega": "+53 5 8749816",
+    "correo_comprador": "juanka9205@gmail.com",
+    "direccion_envio": "Calle Menocal #39 entre Carretera central y lorenzo ortiz, rpto Primero",
+    "compras": [
+      {
+        "id": "mlq5jmsg-5sd57k1",
+        "name": "Café Molido Natural Vima (250g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 6.29,
+        "discount": 0
+      },
+      {
+        "id": "prod_1778847806170_jkkjx370h",
+        "name": "Sardina en (aceite vegetal)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.97,
+        "discount": 0
+      },
+      {
+        "id": "mlipxcrm-1ev233g",
+        "name": "Leche Evaporada",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 2.23,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "29.44",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Único",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "95.75.165.87",
+    "pais": "IT",
+    "fecha_hora_entrada": "2026-07-02 12:07:18",
+    "origen": "https://www.asereshops.com/#category=agro",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Nailin contreras santiesteban",
+    "telefono_comprador": "3395327206",
+    "nombre_persona_entrega": "Leonor santiesteban Reyes",
+    "telefono_persona_entrega": "5 8861773",
+    "correo_comprador": "leonormax@gmail.com",
+    "direccion_envio": "Calle Colón 148A entre Ramon ortuño e 24febrero",
+    "compras": [
+      {
+        "id": "mlgzank2-7rrnc41",
+        "name": "Plátano macho x unidad",
+        "quantity": 27,
+        "type": "product",
+        "unitPrice": 0.31,
+        "discount": 0
+      },
+      {
+        "id": "prod_1780898576880_bipsglzoq",
+        "name": "Tomate x Lb",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.29,
+        "discount": 0
+      },
+      {
+        "id": "mmq2d45l-1yp3xfb",
+        "name": "Papa x Lb",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1780898877916_5d33s5iir",
+        "name": "Cebolla x Lb (Blanca)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.09,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-104syot",
+        "name": "Mano de plátano burro",
+        "quantity": 6,
+        "type": "product",
+        "unitPrice": 0.89,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-6p9wgln",
+        "name": "Boniato x Lb",
+        "quantity": 6,
+        "type": "product",
+        "unitPrice": 0.49,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "29.81",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
