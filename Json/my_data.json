@@ -4767,5 +4767,36 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:100d:a120:776e:8421:3518:f819:f096",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-03 22:25:51",
+    "origen": "https://www.asereshops.com/p/mml2tcre-1yodt0e",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Roxana Caridad Gonzalez Hernandez",
+    "telefono_comprador": "13463141322",
+    "nombre_persona_entrega": "Maria Isabel Hernandez Santana",
+    "telefono_persona_entrega": "+5353980245",
+    "correo_comprador": "rcgh.98@gmail.com",
+    "direccion_envio": "Calle B triplanta 1 apto 3 %Luis Ramirez Lopez y Ave 2 de diciembre Las Tunas",
+    "compras": [
+      {
+        "id": "mml2tcre-1yodt0e",
+        "name": "Queso Gouda Vima 3Kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 33.390873000000006,
+        "discount": 9.73
+      }
+    ],
+    "precio_compra_total": "33.39",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://www.google.com/"
   }
 ]
