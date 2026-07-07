@@ -4798,5 +4798,76 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "https://www.google.com/"
+  },
+  {
+    "ip": "2607:fb92:981:7e79:184c:d8d3:a204:1e52",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-07 07:43:31",
+    "origen": "https://www.asereshops.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Eileen Cruz",
+    "telefono_comprador": "5024387312",
+    "nombre_persona_entrega": "Mara Peña Gonzalez",
+    "telefono_persona_entrega": "+5363000571",
+    "correo_comprador": "cruz8902@icloud.com",
+    "direccion_envio": "173 Francisco Vega entre Lora y Nicolas Heredia Reparto Primero Las Tunas",
+    "compras": [
+      {
+        "id": "prod_1780036583010_2sg3ync8t",
+        "name": "Spam de Res (340g)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1780385819341_7trd7j57s",
+        "name": "Minimagdalenas Vima con Chispas de Chocolate 200g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.99,
+        "discount": 0
+      },
+      {
+        "id": "mlqxb74h-15nfelz",
+        "name": "Saco de Carbón",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 7,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-1pwcv2o",
+        "name": "Cartón de Huevos",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 6.49,
+        "discount": 0
+      },
+      {
+        "id": "prod_1780383989393_k7vcb90aq",
+        "name": "Macarrones con queso (206g)",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 0.89,
+        "discount": 0
+      },
+      {
+        "id": "mlq6yah4-1vaviqx",
+        "name": "Leche Condensada",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "48.46",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
