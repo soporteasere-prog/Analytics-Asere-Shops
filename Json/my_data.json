@@ -5099,5 +5099,162 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "79.31.237.35",
+    "pais": "IT",
+    "fecha_hora_entrada": "2026-07-17 14:42:18",
+    "origen": "https://www.asereshops.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Nailin contreras santiesteban",
+    "telefono_comprador": "3395327206",
+    "nombre_persona_entrega": "Leonor santiesteban Reyes",
+    "telefono_persona_entrega": "5 8861773",
+    "correo_comprador": "leonormax@gmail.com",
+    "direccion_envio": "Calle Colón 148A entre Ramon ortuño e 24febrero",
+    "compras": [
+      {
+        "id": "prod_1784085220775_112af9owl",
+        "name": "Platano fruta x Lb",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 0.69,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784085314957_b0f3v975k",
+        "name": "Frutabomba x Lb",
+        "quantity": 7,
+        "type": "product",
+        "unitPrice": 0.69,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784085149536_q8dwstd9d",
+        "name": "Piña x unidad",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.79,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784084967700_0flhj8uyc",
+        "name": "Sorbeto Wafer Pajucara 78g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.67,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784085748394_kgvax0vp6",
+        "name": "Galletas Paradise Fun rellena de Vainilla",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 0.45,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784085069574_ou4tiu1nk",
+        "name": "Galletas JimJam 23g",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 0.19,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784085339216_ious2e4bs",
+        "name": "Galletas Marias Todeschini 360g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.19,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "16.81",
+    "navegador": "Samsung Browser",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "79.31.237.35",
+    "pais": "IT",
+    "fecha_hora_entrada": "2026-07-17 14:52:11",
+    "origen": "https://www.asereshops.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Nailin contreras santiesteban",
+    "telefono_comprador": "3395327206",
+    "nombre_persona_entrega": "Leonor santiesteban Reyes",
+    "telefono_persona_entrega": "5 8861773",
+    "correo_comprador": "leonormax@gmail.com",
+    "direccion_envio": "Calle Colón 148A entre Ramon ortuño e 24febrero",
+    "compras": [
+      {
+        "id": "prod_1780898576880_bipsglzoq",
+        "name": "Tomate x Lb",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.49,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-6p9wgln",
+        "name": "Boniato x Lb",
+        "quantity": 9,
+        "type": "product",
+        "unitPrice": 0.49,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "10.37",
+    "navegador": "Samsung Browser",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "79.31.237.35",
+    "pais": "IT",
+    "fecha_hora_entrada": "2026-07-17 15:04:29",
+    "origen": "https://www.asereshops.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Nailin contreras santiesteban",
+    "telefono_comprador": "3395327206",
+    "nombre_persona_entrega": "Leonor santiesteban Reyes",
+    "telefono_persona_entrega": "5 8861773",
+    "correo_comprador": "leonormax@gmail.com",
+    "direccion_envio": "Calle Colón 148A entre Ramon ortuño e 24febrero",
+    "compras": [
+      {
+        "id": "mmq2vpro-1bckqxm",
+        "name": "Pack x 12 Néctar de Manzana (12x330ml)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 10.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784085704063_e915gnzn7",
+        "name": "Jugo de Mango Badelli 200ml",
+        "quantity": 6,
+        "type": "product",
+        "unitPrice": 0.69,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "15.13",
+    "navegador": "Samsung Browser",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
