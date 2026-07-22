@@ -5256,5 +5256,83 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "134.82.68.164",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-19 12:06:50",
+    "origen": "https://www.asereshops.com/?utm_source=chatgpt.com",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Lorena Camila",
+    "telefono_comprador": "51403749",
+    "nombre_persona_entrega": "Lorena",
+    "telefono_persona_entrega": "51403749",
+    "correo_comprador": "leydisleyva1993@gmail.com",
+    "direccion_envio": "José López #17 entre Antonio barrera y rene guzmán",
+    "compras": [
+      {
+        "id": "prod_1782248723657_baci8f89g",
+        "name": "Paquete de salchichas (340g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.97,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank1-sikt6w1",
+        "name": "Carne de cerdo x Lb",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 2.9,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "10.67",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:58a:8602:8330:9ace:98a6:c29e:b109",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-21 10:13:58",
+    "origen": "https://www.asereshops.com/#category=Nuevos%20agregados",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Juan Carlos Heredia Lopez",
+    "telefono_comprador": "3055094055",
+    "nombre_persona_entrega": "Juan Emilio Marrero Nuñez",
+    "telefono_persona_entrega": "+53 5 8749816",
+    "correo_comprador": "juanka9205@gmail.com",
+    "direccion_envio": "Menocal #39 entre Carretera Central y Lorenzo ortiz",
+    "compras": [
+      {
+        "id": "mlqxb74h-15nfelz",
+        "name": "Saco de Carbón",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 7.99,
+        "discount": 0
+      },
+      {
+        "id": "mlq5jmsg-5sd57k1",
+        "name": "Café Molido Natural Vima (250g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 6.29,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "28.56",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
