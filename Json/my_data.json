@@ -5334,5 +5334,188 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb90:e2a9:4f57:2595:c408:c067:58dc",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-07-27 15:37:07",
+    "origen": "https://www.asereshops.com/p/prod_1784084861848_lf3sv6alp",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Daniela Benitez Espinosa",
+    "telefono_comprador": "2393519005",
+    "nombre_persona_entrega": "Karla",
+    "telefono_persona_entrega": "+53 5 2046765",
+    "correo_comprador": "danielabenitez2008@icloud.com",
+    "direccion_envio": "Mario Oro # 41 %J Espinosa y C.Barreda",
+    "compras": [
+      {
+        "id": "mlgzank2-104syot",
+        "name": "Mano de plátano burro",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.89,
+        "discount": 0
+      },
+      {
+        "id": "prod_1780898637844_fgf976qqp",
+        "name": "Pimiento x Lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1780898576880_bipsglzoq",
+        "name": "Tomate x Lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.49,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-psrcao1",
+        "name": "Arroz (1Kg)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.57,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-1gog4gl",
+        "name": "Frijol Negro x Lb",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.3898879999999998,
+        "discount": 45.28
+      },
+      {
+        "id": "mli2ve9o-a60fi91",
+        "name": "Aceite 900ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.19,
+        "discount": 0
+      },
+      {
+        "id": "mlq7aq58-1jmj44p",
+        "name": "Pasta de tomate Vima (400g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.49,
+        "discount": 0
+      },
+      {
+        "id": "prod_1783777672836_8a1f06f66",
+        "name": "Refresco Gaseado 1.5Lts (naranja)",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 2.75,
+        "discount": 0
+      },
+      {
+        "id": "prod_1782248629204_wwreudpb5",
+        "name": "Aceituna con Hueso Bolsita (160g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.17,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784085970352_ewo3rwqs8",
+        "name": "Galletas Paradise Fun rellena de Fresa",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.45,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784085748394_kgvax0vp6",
+        "name": "Galletas Paradise Fun rellena de Vainilla",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.45,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784085339216_ious2e4bs",
+        "name": "Galletas Marias Todeschini 360g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.19,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784085069574_ou4tiu1nk",
+        "name": "Galletas JimJam 23g",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.19,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784085996175_ccye2acd2",
+        "name": "Galletas Paradise Fun rellena de Chocolate",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.45,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784085416556_rb7096vzy",
+        "name": "Galletas Oppo de Chocolate",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.39,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784084803950_5g7o1en49",
+        "name": "Paquete de galletas Marías (170g)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.13,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784084902572_xbg4ag62q",
+        "name": "Donas cubiertas de chocolate",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 0.4,
+        "discount": 0
+      },
+      {
+        "id": "mon0i35f-oxbfit6",
+        "name": "Galletas Saltitacos",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.97,
+        "discount": 20.6
+      },
+      {
+        "id": "prod_1780385819341_7trd7j57s",
+        "name": "Minimagdalenas Vima con Chispas de Chocolate 200g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784084861848_lf3sv6alp",
+        "name": "Paquete de Caramelos de Leche (50/u)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.39,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "55.96",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://www.asereshops.com/p/prod_1784084861848_lf3sv6alp"
   }
 ]
