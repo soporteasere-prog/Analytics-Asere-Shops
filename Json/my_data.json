@@ -5517,5 +5517,179 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "https://www.asereshops.com/p/prod_1784084861848_lf3sv6alp"
+  },
+  {
+    "ip": "2a0c:5a81:5403:d601::25fc",
+    "pais": "ES",
+    "fecha_hora_entrada": "2026-07-31 12:58:03",
+    "origen": "https://www.asereshops.com/#category=pastas-y-granos",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yely Espinosa",
+    "telefono_comprador": "615837908",
+    "nombre_persona_entrega": "Leticia moro lobaina",
+    "telefono_persona_entrega": "58610800",
+    "correo_comprador": "yeliespinosa@live.com",
+    "direccion_envio": "Calle Lorenzo Ortiz 58A / j. Aguero y Nicolás  Heredia CP 75100",
+    "compras": [
+      {
+        "id": "mlgzank1-sikt6w1",
+        "name": "Carne de cerdo x Lb",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 2.9,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank1-16w7pq2",
+        "name": "Queso blanco x Lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.29,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank1-1s4o3vq",
+        "name": "Carne de Ovejo x Lb",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 2.14,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-1gog4gl",
+        "name": "Frijol Negro x Lb",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.3898879999999998,
+        "discount": 45.28
+      },
+      {
+        "id": "mlgzank2-7rrnc41",
+        "name": "Plátano macho x unidad",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 0.31,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-104syot",
+        "name": "Mano de plátano burro",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.89,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-6p9wgln",
+        "name": "Boniato x Lb",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 0.49,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-psrcao1",
+        "name": "Arroz (1Kg)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.57,
+        "discount": 0
+      },
+      {
+        "id": "prod_1782248723657_baci8f89g",
+        "name": "Paquete de salchichas (340g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 1.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784085314957_b0f3v975k",
+        "name": "Frutabomba x Lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 0.69,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784085220775_112af9owl",
+        "name": "Platano fruta x Lb",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.69,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank4-1oad65v",
+        "name": "Frijoles rojos x lb",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.89,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "55.21",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "87.4.157.64",
+    "pais": "IT",
+    "fecha_hora_entrada": "2026-08-01 08:00:42",
+    "origen": "https://www.asereshops.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Nailin contreras santiesteban",
+    "telefono_comprador": "3395327206",
+    "nombre_persona_entrega": "Leonor santiesteban Reyes",
+    "telefono_persona_entrega": "58861773",
+    "correo_comprador": "leonormax@gmail.com",
+    "direccion_envio": "Calle Colón 148A entre Ramon ortuño e 24febrero",
+    "compras": [
+      {
+        "id": "mlgzank2-7rrnc41",
+        "name": "Plátano macho x unidad",
+        "quantity": 20,
+        "type": "product",
+        "unitPrice": 0.31,
+        "discount": 0
+      },
+      {
+        "id": "prod_1780898576880_bipsglzoq",
+        "name": "Tomate x Lb",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 1.49,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-104syot",
+        "name": "Mano de plátano burro",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 0.89,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784085011314_2h142kngq",
+        "name": "Néctar de Mango 🥭 Nezka (250ml)",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 1.17,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "25.04",
+    "navegador": "Samsung Browser",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
