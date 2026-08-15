@@ -5691,5 +5691,76 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "87.13.70.173",
+    "pais": "IT",
+    "fecha_hora_entrada": "2026-08-14 12:16:34",
+    "origen": "https://www.asereshops.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Nailin contreras santiesteban",
+    "telefono_comprador": "3395327206",
+    "nombre_persona_entrega": "Leonor santiesteban Reyes",
+    "telefono_persona_entrega": "3395327206",
+    "correo_comprador": "leonormax@gmail.com",
+    "direccion_envio": "Calle Colón 148A",
+    "compras": [
+      {
+        "id": "mlgzank2-7rrnc41",
+        "name": "Plátano macho x unidad",
+        "quantity": 20,
+        "type": "product",
+        "unitPrice": 0.31,
+        "discount": 0
+      },
+      {
+        "id": "prod_1780898576880_bipsglzoq",
+        "name": "Tomate x Lb",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.49,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784085314957_b0f3v975k",
+        "name": "Frutabomba x Lb",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 0.69,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-rixdtgx",
+        "name": "Pepino x Lb",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 0.58,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784086072969_29jsrsqk7",
+        "name": "Servilletas Azahar 50u",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 0.99,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank4-492ui61",
+        "name": "Cerveza Bucanero x und.",
+        "quantity": 10,
+        "type": "product",
+        "unitPrice": 1.1,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "29.92",
+    "navegador": "Samsung Browser",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
