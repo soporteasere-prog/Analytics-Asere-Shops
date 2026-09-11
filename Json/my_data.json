@@ -5762,5 +5762,131 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "172.56.98.212",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-09-06 11:15:39",
+    "origen": "https://asereshops.com/?utm_source=chatgpt.com",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Juan Carlos Rodriguez Zaldivar",
+    "telefono_comprador": "9413103575",
+    "nombre_persona_entrega": "Marlenis Zayas",
+    "telefono_persona_entrega": "58345570",
+    "correo_comprador": "titirv4@gmail.com",
+    "direccion_envio": "Genaro rojas #138/Aquiles Espinoza y J.R.Napoles .Buena vista",
+    "compras": [
+      {
+        "id": "mli1qt1h-m8mjr31",
+        "name": "Paquete de cuartos de pollo 10 lbs",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 15.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1785475908038_wm85nrxc1",
+        "name": "Jamon Chopped 800g marca Bravo",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 6.69,
+        "discount": 0
+      },
+      {
+        "id": "mli2ve9o-a60fi91",
+        "name": "Aceite 900ml",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 7.97,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank1-16w7pq2",
+        "name": "Queso blanco x Lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.29,
+        "discount": 0
+      },
+      {
+        "id": "prod_1777963852488_1rs856dd0",
+        "name": "Mortadela de Pollo 1kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 5.99,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank3-1pzccww",
+        "name": "Leche entera en polvo (1kg)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 9.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784312079492_9a8xpa79d",
+        "name": "Paquete de Harina «Vima» (1kg)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 3.99,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "55.18",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:58a:8684:f190:f414:a078:81ad:5503",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-09-10 09:11:41",
+    "origen": "https://asereshops.com/p/mlgzank3-1pzccww",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Juan Carlos Heredia Lopez",
+    "telefono_comprador": "13055094055",
+    "nombre_persona_entrega": "Juan Emilio Marrero Nuñez",
+    "telefono_persona_entrega": "+53 5 8749816",
+    "correo_comprador": "juanka9205@gmail.com",
+    "direccion_envio": "Calle Menocal #39 entre Carretera central y lorenzo ortiz, rpto Primero",
+    "compras": [
+      {
+        "id": "mn4ikino-19m47n4",
+        "name": "Cacao en Polvo 800g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 10.87,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank3-1pzccww",
+        "name": "Leche entera en polvo (1kg)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 9.99,
+        "discount": 0
+      },
+      {
+        "id": "mlq5jmsg-5sd57k1",
+        "name": "Café Molido Natural Vima (250g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 6.29,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "43.43",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
