@@ -88,17 +88,11 @@ export function sanitizeFileName(fileName) {
 
 /**
  * Normaliza un texto para búsqueda, quitando tildes y caracteres diacríticos.
+ * Función canónica definida en Core/utils.js (re-exportada para compatibilidad).
  * @param {string} value
  * @returns {string}
  */
-export function normalizeSearchString(value = '') {
-    return String(value)
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .replace(/\s+/g, ' ')
-        .trim()
-        .toLowerCase();
-}
+export { normalizeSearchString } from '../../Core/utils.js';
 
 /**
  * Convierte un objeto a JSON Base64

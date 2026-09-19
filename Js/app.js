@@ -6,7 +6,7 @@ import { SettingsUI } from './Modules/Settings/settingsUI.js';
 import { InventoryApp } from './Modules/Inventory/inventoryApp.js';
 import { GitHubManager } from './Modules/Github/githubManager.js';
 import { NotificationEditorUI } from './Modules/Notifications/notificationEditorUI.js';
-import { showAlert, getCurrencySymbol, formatCurrency } from './Core/utils.js';
+import { showAlert, getCurrencySymbol, formatCurrency, normalizeSearchString } from './Core/utils.js';
 import { CONFIG } from './Core/config.js';
 
 /**
@@ -322,13 +322,16 @@ class DashboardApp {
         document.querySelectorAll('.filter-group select, .filter-group input').forEach(el =>
             el.addEventListener('change', () => this.applyFilters()));
 
-        // Búsqueda
+        // Búsqueda (con debounce ~250ms para no re-renderizar todo en cada tecla)
         const searchInput = document.getElementById('search-data');
         if (searchInput) {
             searchInput.addEventListener('input', (e) => {
-                const searchTerm = e.target.value.toLowerCase();
-                this.dataManager.search(searchTerm);
-                this.updateDashboard();
+                clearTimeout(this._searchDebounceTimer);
+                this._searchDebounceTimer = setTimeout(() => {
+                    const searchTerm = normalizeSearchString(e.target.value);
+                    this.dataManager.search(searchTerm);
+                    this.updateDashboard();
+                }, 250);
             });
         }
 
@@ -408,7 +411,14 @@ class DashboardApp {
         UIRenderer.updateStats(stats);
 
         // Mostrar 'Visitas Totales' obtenidas desde el backend (/obtener-estadisticas).
+        // ⚡ Con caché TTL (60s) para no disparar un fetch al backend en cada búsqueda/filtro
         (function updateVisitsFromBackend(self) {
+            const now = Date.now();
+            if (self._visitsCacheExpires && self._visitsCacheExpires > now) {
+                const el = document.getElementById('server-available-users');
+                if (el && self._visitsCachedValue !== undefined) el.textContent = self._visitsCachedValue;
+                return;
+            }
             const BACKEND_URL = CONFIG.BACKEND_URL;
             fetch(`${BACKEND_URL}/obtener-estadisticas`)
                 .then(resp => {
@@ -417,6 +427,8 @@ class DashboardApp {
                 })
                 .then(serverStats => {
                     const totalVisits = Array.isArray(serverStats) ? serverStats.length : 0;
+                    self._visitsCachedValue = totalVisits;
+                    self._visitsCacheExpires = Date.now() + 60000;
                     const el = document.getElementById('server-available-users');
                     if (el) el.textContent = totalVisits;
                 })

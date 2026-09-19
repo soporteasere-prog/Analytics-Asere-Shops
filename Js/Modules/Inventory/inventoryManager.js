@@ -3,6 +3,8 @@
  * Carga productos desde GitHub y renderiza la tienda
  */
 
+import { normalizeSearchString } from './inventoryUtils.js';
+
 
 export class InventoryManager {
     constructor(githubManager = null) {
@@ -124,8 +126,10 @@ export class InventoryManager {
                 product.imagenUrl = 'Img/no_image.jpg';
             }
             
-            // Crear campo de búsqueda
-            product.searchText = `${product.nombre} ${product.categoria} ${product.descripcion}`.toLowerCase();
+            // Crear campo de búsqueda (searchNorm sin tildes para coincidencias robustas)
+            const searchSource = `${product.nombre || ''} ${product.categoria || ''} ${product.descripcion || ''}`;
+            product.searchText = searchSource.toLowerCase();
+            product.searchNorm = normalizeSearchString(searchSource);
             // Normalizar timestamps si existen o mapear campo legacy 'hora'
             product.created_at = product.created_at || product.hora || null;
             product.modified_at = product.modified_at || product.created_at || null;
@@ -133,25 +137,31 @@ export class InventoryManager {
     }
 
     /**
-     * Filtra productos por término de búsqueda
+     * Filtra productos por término de búsqueda (ignora tildes)
      */
     search(searchTerm) {
-        const term = searchTerm.toLowerCase();
-        this.filteredProducts = this.products.filter(product =>
-            product.searchText.includes(term)
-        );
+        const term = normalizeSearchString(searchTerm);
+        if (!term) {
+            this.filteredProducts = [...this.products];
+            return this.filteredProducts;
+        }
+        this.filteredProducts = this.products.filter(product => {
+            const haystack = product.searchNorm || normalizeSearchString(product.searchText || '');
+            return haystack.includes(term);
+        });
         return this.filteredProducts;
     }
 
     /**
-     * Filtra productos por categoría
+     * Filtra productos por categoría (ignora mayúsculas y tildes)
      */
     filterByCategory(category) {
-        if (category === 'todos') {
+        if (category === 'todos' || !category) {
             this.filteredProducts = [...this.products];
         } else {
+            const normCategory = normalizeSearchString(category);
             this.filteredProducts = this.products.filter(product =>
-                product.categoria.toLowerCase() === category.toLowerCase()
+                normalizeSearchString(product.categoria || '') === normCategory
             );
         }
         return this.filteredProducts;

@@ -15,6 +15,13 @@ export class InventoryUIRenderer {
         this.packManager = null;
         this.currentView = 'products'; // 'products' or 'packs' or 'changes'
         this._backgroundInventoryFetches = new Set(); // evitar fetchs concurrentes por producto
+
+        // ⚡ Optimizaciones: debounce de búsqueda y cachés para evitar re-render/fetchs innecesarios
+        this._searchDebounceTimer = null;
+        this._filterCache = null;          // resultado filtrado reutilizable
+        this._lastFilterKey = null;        // clave del último filtro aplicado
+        this._filterSourceArray = null;    // referencia al array fuente del último filtro
+        this._imageSizeCache = new Map();  // URL -> tamaño en bytes (evita repetir fetch HEAD)
     }
 
     /**
@@ -277,7 +284,7 @@ export class InventoryUIRenderer {
     }
 
     /**
-     * Renderiza la grid de productos
+     * Renderiza la grid de productos (con índice staged precalculado para evitar O(N×M))
      */
     renderProductsGrid(products = null) {
         const grid = document.getElementById('products-grid');
@@ -295,7 +302,9 @@ export class InventoryUIRenderer {
             return;
         }
 
-        grid.innerHTML = productsToRender.map(product => this.createProductCard(product)).join('');
+        // Precalcular estado staged una sola vez (no por tarjeta)
+        const stagedState = this._computeStagedState();
+        grid.innerHTML = productsToRender.map(product => this.createProductCard(product, stagedState)).join('');
 
         // Event listeners para acciones de productos
         grid.querySelectorAll('.btn-product-edit').forEach(btn => {
@@ -332,11 +341,14 @@ export class InventoryUIRenderer {
 
     /**
      * Crea el HTML de una tarjeta de producto
+     * @param {Object} product
+     * @param {Object} [stagedState] - Índice staged precalculado { modifiedIds, deletedIds, changeMap }
      */
-    createProductCard(product) {
+    createProductCard(product, stagedState = null) {
         const discount = product.descuento ? `<span class="product-price-original">$${product.precio.toFixed(2)}</span>` : '';
-        const isModified = this.productManager.getStagedChanges().some(c => c.productId === product.id && c.type === 'modify');
-        const isDeleted = this.productManager.getStagedChanges().some(c => c.productId === product.id && c.type === 'delete');
+        if (!stagedState) stagedState = this._computeStagedState();
+        const isModified = stagedState.modifiedIds.has(product.id);
+        const isDeleted = stagedState.deletedIds.has(product.id);
 
         // Lógica de Badge de Stock
         const stockVal = product.stock !== null && product.stock !== undefined ? Number(product.stock) : null;
@@ -397,7 +409,7 @@ export class InventoryUIRenderer {
                     <div class="product-category">${product.categoria}</div>
                     <div class="product-description">${product.descripcion || 'Sin descripción'}</div>
                     ${dateHtml}
-                    ${isModified ? `<div class="product-change-summary">${this.getProductChangeSummary(product)}</div>` : ''}
+                    ${isModified ? `<div class="product-change-summary">${this.getProductChangeSummary(product, stagedState.changeMap.get(product.id))}</div>` : ''}
                     <div class="product-footer">
                         <div class="product-price">
                             <div class="product-price-final">$${product.precioFinal.toFixed(2)}</div>
@@ -419,15 +431,26 @@ export class InventoryUIRenderer {
     }
 
     /**
-     * Renderiza la grid de packs
+     * Renderiza la grid de packs (aplica búsqueda con tolerancia a tildes)
      */
     renderPacksGrid(packs = null) {
         const grid = document.getElementById('packs-grid');
-        const packsToRender = packs || (this.packManager ? this.packManager.packs : []);
-
         if (!grid) return;
 
-        if (!packsToRender || packsToRender.length === 0) {
+        let source = packs || (this.packManager ? this.packManager.packs : []);
+
+        // Aplicar búsqueda de la barra también a packs (con normalización de tildes)
+        const searchInput = document.getElementById('search-products');
+        const term = (searchInput?.value || '').trim();
+        if (term && source && source.length) {
+            const normalizedTerm = normalizeSearchString(term);
+            source = source.filter(p => {
+                const haystack = p.searchNorm || normalizeSearchString(p.searchText || '');
+                return haystack.includes(normalizedTerm);
+            });
+        }
+
+        if (!source || source.length === 0) {
             grid.innerHTML = `
                 <div class="empty-state">
                     <i class="fas fa-inbox"></i>
@@ -437,7 +460,8 @@ export class InventoryUIRenderer {
             return;
         }
 
-        grid.innerHTML = packsToRender.map(pack => this.createPackCard(pack)).join('');
+        const stagedState = this._computePacksStagedState();
+        grid.innerHTML = source.map(pack => this.createPackCard(pack, stagedState)).join('');
 
         // Event listeners
         grid.querySelectorAll('.btn-pack-edit').forEach(btn => {
@@ -458,11 +482,16 @@ export class InventoryUIRenderer {
         try { this.updateToolbarStats(); } catch (e) { console.warn('updateToolbarStats error', e); }
     }
 
-    createPackCard(pack) {
+    /**
+     * Crea el HTML de una tarjeta de pack
+     * @param {Object} pack
+     * @param {Object} [stagedState] - Índice staged precalculado para packs
+     */
+    createPackCard(pack, stagedState = null) {
         const discount = pack.descuento ? `<span class="product-price-original">$${pack.precio.toFixed(2)}</span>` : '';
-        const staged = this.packManager ? this.packManager.getStagedChanges() : [];
-        const isModified = staged && staged.some(c => c.packId === pack.id && c.type === 'modify');
-        const isDeleted = staged && staged.some(c => c.packId === pack.id && c.type === 'delete');
+        if (!stagedState) stagedState = this._computePacksStagedState();
+        const isModified = stagedState.modifiedIds.has(pack.id);
+        const isDeleted = stagedState.deletedIds.has(pack.id);
         let features = '';
         if (Array.isArray(pack.caracteristicas)) {
             features = `<ul class="pack-features">${pack.caracteristicas.map(f => `<li>${f}</li>`).join('')}</ul>`;
@@ -1658,15 +1687,18 @@ export class InventoryUIRenderer {
             });
         }
 
-        // Búsqueda
+        // Búsqueda (con debounce ~180ms para no re-renderizar el grid en cada tecla)
         const searchInput = document.getElementById('search-products');
         if (searchInput) {
             searchInput.addEventListener('input', () => {
-                if (this.currentView === 'packs' && this.packManager) {
-                    this.renderPacksGrid();
-                } else {
-                    this.renderProductsGrid();
-                }
+                clearTimeout(this._searchDebounceTimer);
+                this._searchDebounceTimer = setTimeout(() => {
+                    if (this.currentView === 'packs' && this.packManager) {
+                        this.renderPacksGrid();
+                    } else {
+                        this.renderProductsGrid();
+                    }
+                }, 180);
             });
         }
 
@@ -1814,26 +1846,99 @@ export class InventoryUIRenderer {
         };
     }
 
+    /**
+     * ⚡ Precalcula un índice de los cambios staged para no recorrer
+     * getStagedChanges() por cada producto (evita O(N×M)).
+     * @returns {{ modifiedIds:Set, deletedIds:Set, newIds:Set, changeMap:Map }}
+     */
+    _computeStagedState(force = false) {
+        if (!force && this._stagedState && this._stagedStateVersion === this._getStagedVersion()) {
+            return this._stagedState;
+        }
+        const changed = this.productManager?.getStagedChanges?.() || [];
+        const modifiedIds = new Set();
+        const deletedIds = new Set();
+        const newIds = new Set();
+        const changeMap = new Map();
+        for (const c of changed) {
+            if (c.type === 'delete') deletedIds.add(c.productId);
+            else if (c.type === 'modify') {
+                modifiedIds.add(c.productId);
+                changeMap.set(c.productId, c);
+            } else if (c.type === 'new') {
+                newIds.add(c.productId);
+            }
+        }
+        this._stagedState = { modifiedIds, deletedIds, newIds, changeMap };
+        this._stagedStateVersion = this._getStagedVersion();
+        return this._stagedState;
+    }
+
+    /**
+     * ⚡ Versión de los cambios staged (para invalidar cachés cuando cambian)
+     */
+    _getStagedVersion() {
+        const changed = this.productManager?.getStagedChanges?.() || [];
+        const last = changed[changed.length - 1];
+        return `${changed.length}:${last ? last.timestamp + ':' + last.id : '0'}`;
+    }
+
+    /**
+     * ⚡ Idem para packs
+     * @returns {{ modifiedIds:Set, deletedIds:Set, changeMap:Map }}
+     */
+    _computePacksStagedState() {
+        const changed = this.packManager?.getStagedChanges?.() || [];
+        const modifiedIds = new Set();
+        const deletedIds = new Set();
+        const changeMap = new Map();
+        for (const c of changed) {
+            if (c.type === 'delete') deletedIds.add(c.packId);
+            else if (c.type === 'modify') {
+                modifiedIds.add(c.packId);
+                changeMap.set(c.packId, c);
+            }
+        }
+        return { modifiedIds, deletedIds, changeMap };
+    }
+
+    /**
+     * ⚡ Filtra productos en un único pase (sin arrays intermedios) y con caché por clave.
+     * La búsqueda compara contra searchNorm (sin tildes), por lo que
+     * "telefono" y "teléfono" producen los mismos resultados.
+     */
     applyProductFilters(products = null) {
         const allProducts = Array.isArray(products) ? products : (this.productManager?.products || []);
         const { searchTerm, category, modified, sort } = this.getActiveProductFilters();
-        let filtered = [...allProducts];
 
-        if (searchTerm) {
-            const normalizedTerm = normalizeSearchString(searchTerm);
-            filtered = filtered.filter(product => product.searchText && product.searchText.includes(normalizedTerm));
+        let key = 'src:' + (allProducts === this.productManager?.products ? 'manager' : 'custom');
+        key += `|t:${searchTerm}|c:${category}|m:${modified}|s:${sort}|sv:${this._getStagedVersion()}`;
+
+        // Reutilizar el filtrado si nada cambió desde la última vez
+        if (Array.isArray(this._filterCache) &&
+            this._lastFilterKey === key &&
+            this._filterSourceArray === allProducts) {
+            return this._filterCache;
         }
 
-        if (category && category !== 'todos') {
-            filtered = filtered.filter(product => String(product.categoria || '').toLowerCase() === category.toLowerCase());
-        }
+        const stagedState = this._computeStagedState();
+        const normalizedTerm = searchTerm ? normalizeSearchString(searchTerm) : '';
+        const normCategory = (category && category !== 'todos') ? normalizeSearchString(category) : null;
 
-        if (modified === 'modified') {
-            const modifiedIds = new Set(this.productManager.getStagedChanges().filter(c => c.type === 'modify').map(c => c.productId));
-            filtered = filtered.filter(product => modifiedIds.has(product.id));
-        } else if (modified === 'new') {
-            const newIds = new Set(this.productManager.getStagedChanges().filter(c => c.type === 'new').map(c => c.productId));
-            filtered = filtered.filter(product => newIds.has(product.id));
+        const filtered = [];
+        for (let i = 0; i < allProducts.length; i++) {
+            const product = allProducts[i];
+
+            if (normalizedTerm) {
+                const haystack = product.searchNorm || normalizeSearchString(product.searchText || '');
+                if (!haystack.includes(normalizedTerm)) continue;
+            }
+            if (normCategory && normalizeSearchString(product.categoria || '') !== normCategory) continue;
+
+            if (modified === 'modified' && !stagedState.modifiedIds.has(product.id)) continue;
+            if (modified === 'new' && !stagedState.newIds.has(product.id)) continue;
+
+            filtered.push(product);
         }
 
         if (sort === 'price_desc') {
@@ -1846,13 +1951,18 @@ export class InventoryUIRenderer {
             filtered.sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0));
         }
 
+        this._filterCache = filtered;
+        this._lastFilterKey = key;
+        this._filterSourceArray = allProducts;
         return filtered;
     }
 
-    getProductChangeSummary(product) {
+    getProductChangeSummary(product, stagedChange = null) {
         if (!product || !this.productManager) return '';
-
-        const stagedChange = this.productManager.getStagedChanges().find(c => c.productId === product.id && c.type === 'modify');
+        if (!stagedChange) {
+            // Fallback: buscar el cambio sólo si no fue provisto
+            stagedChange = this.productManager.getStagedChanges().find(c => c.productId === product.id && c.type === 'modify') || null;
+        }
         if (!stagedChange || !stagedChange.productData) return '';
 
         const original = product;
@@ -1911,6 +2021,7 @@ export class InventoryUIRenderer {
      * inmediatamente la imagen seleccionada desde IndexedDB (Base64).
      */
     async applyStagedImagesToGrid() {
+        if (!this._stagedImageDataCache) this._stagedImageDataCache = new Map(); // imageKey -> { base64, mimeType }
         const allManagers = [this.productManager, this.packManager].filter(Boolean);
         for (const mgr of allManagers) {
             try {
@@ -1919,8 +2030,12 @@ export class InventoryUIRenderer {
 
                 for (const change of changesWithImages) {
                     try {
-                        const imgData = await mgr.stagingDB.getImageFromIDB(change.imageKey);
-                        if (!imgData || !imgData.base64) continue;
+                        let imgData = this._stagedImageDataCache.get(change.imageKey);
+                        if (!imgData) {
+                            imgData = await mgr.stagingDB.getImageFromIDB(change.imageKey);
+                            if (!imgData || !imgData.base64) continue;
+                            this._stagedImageDataCache.set(change.imageKey, imgData);
+                        }
 
                         const src = base64ToDataURL(imgData.base64, imgData.mimeType || 'image/jpeg');
                         const selectorId = change.productId || change.packId || change.productId;
@@ -1990,6 +2105,18 @@ export class InventoryUIRenderer {
                         return;
                     }
 
+                    // ⚡ Usar caché para no repetir el fetch HEAD en cada búsqueda/re-render
+                    if (this._imageSizeCache.has(src)) {
+                        const cachedSize = this._imageSizeCache.get(src);
+                        if (cachedSize != null) {
+                            el.textContent = this.formatBytes(cachedSize);
+                            el.title = `${cachedSize} bytes`;
+                        } else {
+                            el.textContent = '';
+                        }
+                        return;
+                    }
+
                     // Try HEAD first
                     let size = null;
                     try {
@@ -2000,6 +2127,11 @@ export class InventoryUIRenderer {
                         }
                     } catch (headErr) {
                         // ignore
+                    }
+
+                    // ⚡ Guardar resultado en caché (también los fallos como null para no repetirlos)
+                    if (!this._imageSizeCache.has(src)) {
+                        this._imageSizeCache.set(src, (size != null && !isNaN(size)) ? size : null);
                     }
 
                     // If HEAD didn't return size, avoid heavy GET; leave blank
@@ -2582,22 +2714,38 @@ export class InventoryUIRenderer {
     }
 
     /**
-     * Actualiza los badges y números del toolbar (counts)
+     * Actualiza los badges y números del toolbar (counts) - ⚡ single-pass con Set
      */
     updateToolbarStats() {
         const products = this.productManager.products || [];
-        const total = products.length;
-        const available = products.filter(p => p.disponibilidad).length;
-        const unavailable = total - available;
         const staged = this.productManager.getStagedChanges ? (this.productManager.getStagedChanges() || []) : [];
-        const modifiedCount = staged.filter(c => c.type === 'modify').length;
+
+        let total = 0;
+        let available = 0;
+        for (let i = 0; i < products.length; i++) {
+            total++;
+            if (products[i].disponibilidad) available++;
+        }
+        const unavailable = total - available;
+
+        let modifiedCount = 0;
+        for (let i = 0; i < staged.length; i++) {
+            if (staged[i].type === 'modify') modifiedCount++;
+        }
 
         // Packs metrics
         const packs = this.packManager ? (this.packManager.packs || []) : [];
-        const packsTotal = packs.length;
-        const packsAvailable = packs.filter(p => p.disponible !== false).length;
+        let packsTotal = 0;
+        let packsAvailable = 0;
+        for (let i = 0; i < packs.length; i++) {
+            packsTotal++;
+            if (packs[i].disponible !== false) packsAvailable++;
+        }
         const packsStaged = this.packManager && this.packManager.getStagedChanges ? (this.packManager.getStagedChanges() || []) : [];
-        const packsModified = packsStaged.filter(c => c.type === 'modify').length;
+        let packsModified = 0;
+        for (let i = 0; i < packsStaged.length; i++) {
+            if (packsStaged[i].type === 'modify') packsModified++;
+        }
 
         const elTotal = document.getElementById('stat-total');
         const elAvailable = document.getElementById('stat-available');

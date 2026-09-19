@@ -374,8 +374,11 @@ export class ProductManager {
                 product.imagenUrl = 'Img/no_image.jpg';
             }
             
-            // Crear campo de búsqueda
-            product.searchText = `${product.nombre} ${product.categoria} ${product.descripcion || ''}`.toLowerCase();
+            // Campo de búsqueda: searchText (minúsculas) y searchNorm (sin tildes)
+            // searchNorm permite que "telefono" y "teléfono" coincidan en la búsqueda.
+            const searchSource = `${product.nombre} ${product.categoria} ${product.descripcion || ''}`;
+            product.searchText = searchSource.toLowerCase();
+            product.searchNorm = normalizeSearchString(searchSource);
             // Normalizar timestamps si existen o mapear campo legacy 'hora'
             product.created_at = product.created_at || product.hora || null;
             product.modified_at = product.modified_at || product.created_at || null;
@@ -1118,11 +1121,14 @@ export class ProductManager {
     searchProducts(searchTerm) {
         const term = normalizeSearchString(searchTerm);
         if (!term) return this.products;
-        return this.products.filter(p => p.searchText && p.searchText.includes(term));
+        return this.products.filter(p => {
+            const haystack = p.searchNorm || normalizeSearchString(p.searchText || '');
+            return haystack.includes(term);
+        });
     }
 
     /**
-     * Filtra por categoría
+     * Filtra por categoría (ignorando mayúsculas y tildes)
      * @param {string} category
      * @returns {Array}
      */
@@ -1130,7 +1136,8 @@ export class ProductManager {
         if (!category || category === 'todos') {
             return this.products;
         }
-        return this.products.filter(p => p.categoria.toLowerCase() === category.toLowerCase());
+        const normCategory = normalizeSearchString(category);
+        return this.products.filter(p => normalizeSearchString(p.categoria || '') === normCategory);
     }
 
     /**

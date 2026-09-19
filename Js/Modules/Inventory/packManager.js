@@ -8,6 +8,7 @@ import {
     fileToDataURL,
     base64ToDataURL,
     sanitizeFileName,
+    normalizeSearchString,
     objectToBase64,
     base64ToObject,
     isValidImageFile,
@@ -119,7 +120,9 @@ export class PackManager {
                 pack.imagenUrl = 'Img/no_image.jpg';
             }
 
-            pack.searchText = `${pack.nombre} ${pack.categoria || ''} ${pack.descripcion || ''}`.toLowerCase();
+            const searchSource = `${pack.nombre} ${pack.categoria || ''} ${pack.descripcion || ''}`;
+            pack.searchText = searchSource.toLowerCase();
+            pack.searchNorm = normalizeSearchString(searchSource);
             pack.created_at = pack.created_at || pack.hora || null;
             pack.modified_at = pack.modified_at || pack.created_at || null;
         });
@@ -356,13 +359,18 @@ export class PackManager {
     }
 
     searchPacks(term) {
-        const t = term.toLowerCase();
-        return this.packs.filter(p => p.searchText.includes(t));
+        const t = normalizeSearchString(term);
+        if (!t) return this.packs;
+        return this.packs.filter(p => {
+            const haystack = p.searchNorm || normalizeSearchString(p.searchText || '');
+            return haystack.includes(t);
+        });
     }
 
     filterByCategory(category) {
         if (!category || category === 'todos') return this.packs;
-        return this.packs.filter(p => (p.categoria || '').toLowerCase() === category.toLowerCase());
+        const normCategory = normalizeSearchString(category);
+        return this.packs.filter(p => normalizeSearchString(p.categoria || '') === normCategory);
     }
 
     getAllCategories() { const cats = new Set(this.packs.map(p => p.categoria || '')); return Array.from(cats).sort(); }

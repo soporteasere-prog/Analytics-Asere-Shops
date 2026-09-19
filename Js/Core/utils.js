@@ -92,6 +92,22 @@ export function calculatePercentageChange(current, previous) {
     return ((current - previous) / previous * 100).toFixed(1);
 }
 
+/**
+ * Normaliza un texto para búsqueda: elimina tildes/diacríticos,
+ * pasa a minúsculas, colapsa espacios en blanco y recorta extremos.
+ * Con esto "telefono" y "teléfono" coinciden en las búsquedas.
+ * @param {*} value - Valor a normalizar
+ * @returns {string} Texto normalizado
+ */
+export function normalizeSearchString(value = '') {
+    return String(value)
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .toLowerCase();
+}
+
 // Mostrar notificaciones
 export function showAlert(message, type = 'success', duration = 4000) {
     const alert = document.createElement('div');

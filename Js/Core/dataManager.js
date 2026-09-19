@@ -2,7 +2,7 @@
  * Módulo de manejo de datos
  */
 
-import { getMonthName, formatDate, getMonthIndex } from './utils.js';
+import { getMonthName, formatDate, getMonthIndex, normalizeSearchString } from './utils.js';
 
 export class DataManager {
     constructor() {
@@ -26,6 +26,7 @@ export class DataManager {
             }
             
             this.normalizeData();
+            this._lastFilteredSnapshot = [...this.data];
             this.filteredData = [...this.data];
             return this.data;
         } catch (error) {
@@ -61,8 +62,11 @@ export class DataManager {
             item.operatingSystem = item.sistema_operativo || 'No especificado';
             item.trafficSource = item.fuente_trafico || 'No especificado';
 
-            // Campo de búsqueda
-            item.searchText = `${item.buyerName} ${item.country} ${item.userType} ${item.affiliate} ${item.buyerPhone} ${item.buyerEmail} ${item.shippingAddress} ${item.browser} ${item.operatingSystem} ${item.trafficSource}`.toLowerCase();
+            // Campo de búsqueda (sin tildes en searchNorm para que "telefono"/"teléfono" coincidan)
+            const productNames = Array.isArray(item.compras) ? item.compras.map(c => c.producto || c.name || '').join(' ') : '';
+            const searchSource = `${item.buyerName} ${item.country} ${item.userType} ${item.affiliate} ${item.buyerPhone} ${item.buyerEmail} ${item.shippingAddress} ${item.browser} ${item.operatingSystem} ${item.trafficSource} ${productNames}`;
+            item.searchText = searchSource.toLowerCase();
+            item.searchNorm = normalizeSearchString(searchSource);
 
             // Origen: normalizar la propiedad especial "buquenqe.com" (si existe)
             // - si la clave existe y es false => no viene desde la web
@@ -195,12 +199,19 @@ export class DataManager {
         // Primero filtrar por rango/periodo usando la función existente
         this.filterByDateRange(startDate, endDate, period);
 
+        // Normalizar criterios de comparación (quita tildes) para robustez
+        const normCountry = (country && country !== 'all') ? normalizeSearchString(country) : null;
+        const normAffiliate = (affiliate && affiliate !== 'all') ? normalizeSearchString(affiliate) : null;
+        const normUserType = (userType && userType !== 'all') ? normalizeSearchString(userType) : null;
+        const normBrowser = (browser && browser !== 'all') ? normalizeSearchString(browser) : null;
+        const normOs = (os && os !== 'all') ? normalizeSearchString(os) : null;
+
         this.filteredData = this.filteredData.filter(item => {
-            if (country && country !== 'all' && (item.country || '').toLowerCase() !== (country || '').toLowerCase()) return false;
-            if (affiliate && affiliate !== 'all' && (item.affiliate || '').toLowerCase() !== (affiliate || '').toLowerCase()) return false;
-            if (userType && userType !== 'all' && (item.userType || '').toLowerCase() !== (userType || '').toLowerCase()) return false;
-            if (browser && browser !== 'all' && (item.browser || '').toLowerCase() !== (browser || '').toLowerCase()) return false;
-            if (os && os !== 'all' && (item.operatingSystem || '').toLowerCase() !== (os || '').toLowerCase()) return false;
+            if (normCountry && normalizeSearchString(item.country || '') !== normCountry) return false;
+            if (normAffiliate && normalizeSearchString(item.affiliate || '') !== normAffiliate) return false;
+            if (normUserType && normalizeSearchString(item.userType || '') !== normUserType) return false;
+            if (normBrowser && normalizeSearchString(item.browser || '') !== normBrowser) return false;
+            if (normOs && normalizeSearchString(item.operatingSystem || '') !== normOs) return false;
 
             if (minTotal !== null && minTotal !== '' && !isNaN(Number(minTotal))) {
                 if ((item.total || 0) < Number(minTotal)) return false;
@@ -218,17 +229,25 @@ export class DataManager {
             return true;
         });
 
+        // Snapshot del resultado filtrado para poder restaurarlo al limpiar la búsqueda
+        this._lastFilteredSnapshot = this.filteredData;
         return this.filteredData;
     }
 
     /**
-     * Busca en los datos
+     * Busca en los datos (normaliza tildes para que "café"/"cafe" coincidan)
      */
     search(searchTerm) {
-        const term = searchTerm.toLowerCase();
-        this.filteredData = this.data.filter(item =>
-            item.searchText.includes(term)
-        );
+        const term = normalizeSearchString(searchTerm);
+        if (!term) {
+            // Término vacío: volver a mostrar el conjunto filtrado previo (o todo)
+            this.filteredData = (this._lastFilteredSnapshot || [...this.data]);
+            return this.filteredData;
+        }
+        this.filteredData = this.data.filter(item => {
+            const haystack = item.searchNorm || normalizeSearchString(item.searchText || '');
+            return haystack.includes(term);
+        });
         return this.filteredData;
     }
 
