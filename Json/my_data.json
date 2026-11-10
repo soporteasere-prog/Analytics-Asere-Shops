@@ -6162,5 +6162,508 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "79.34.63.211",
+    "pais": "IT",
+    "fecha_hora_entrada": "2026-09-30 11:50:02",
+    "origen": "https://asereshops.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Nailin contreras santiesteban",
+    "telefono_comprador": "3395327206",
+    "nombre_persona_entrega": "Leonor santiesteban Reyes",
+    "telefono_persona_entrega": "5 8861773",
+    "correo_comprador": "leonormax@gmail.coml",
+    "direccion_envio": "Calle Colón 148A entre Ramon ortuño e 24febrero",
+    "compras": [
+      {
+        "id": "mlgzank2-1gog4gl",
+        "name": "Frijol Negro x Lb",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 1.3898879999999998,
+        "discount": 45.28
+      },
+      {
+        "id": "mlgzank2-104syot",
+        "name": "Mano de plátano burro",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 0.89,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-6p9wgln",
+        "name": "Boniato x Lb",
+        "quantity": 6,
+        "type": "product",
+        "unitPrice": 0.49,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-7rrnc41",
+        "name": "Plátano macho x unidad",
+        "quantity": 21,
+        "type": "product",
+        "unitPrice": 0.31,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "19.96",
+    "navegador": "Samsung Browser",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "138.199.6.54",
+    "pais": "CH",
+    "fecha_hora_entrada": "2026-10-02 13:21:39",
+    "origen": "https://asereshops.com/#category=bebidas",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Katriana Jorge-Pérez",
+    "telefono_comprador": "+5359148857",
+    "nombre_persona_entrega": "Katriana Jorge-Pérez",
+    "telefono_persona_entrega": "+5359148857",
+    "correo_comprador": "katriana.raeber@bluewin.ch",
+    "direccion_envio": "Calle Rosendo Estrada #24, Reparto Velázquez, 75300 Las Tunas",
+    "compras": [
+      {
+        "id": "prod_1790534980070_k6rnxzllx",
+        "name": "Leche Entera 1Lt Vima",
+        "quantity": 12,
+        "type": "product",
+        "unitPrice": 3.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1787129893535_8fqeae0kl",
+        "name": "Pollo Entero 3Lb",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 7.99,
+        "discount": 0
+      },
+      {
+        "id": "mli1qt1h-m8mjr31",
+        "name": "Paquete de cuartos de pollo 10 lbs",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 15.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1789797152225_avf6lit3q",
+        "name": "Paquete de pechuga 2kg sin piel y sin hueso",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 18.99,
+        "discount": 0
+      },
+      {
+        "id": "prod_1788706464524_3o1k7h4lf",
+        "name": "Queso Crema Vima (200g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 5.49,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank1-1ukdukm",
+        "name": "Chuletas de cerdo x Lb",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 3.39,
+        "discount": 0
+      },
+      {
+        "id": "mml2uism-1ue4vr5",
+        "name": "Lomo de cerdo deshuesado (1Kg)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 10.79,
+        "discount": 0
+      },
+      {
+        "id": "mng1iq5n-x7v07w1",
+        "name": "Jamón Bravo 2Kg",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 23.97,
+        "discount": 0
+      },
+      {
+        "id": "prod_1787982247651_88kmpyyo2",
+        "name": "Caja de Cervezas Cristal",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 28.97,
+        "discount": 0
+      },
+      {
+        "id": "mon0i35f-oxbfit6",
+        "name": "Galletas Saltitacos",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 3.97,
+        "discount": 20.6
+      },
+      {
+        "id": "prod_1784085366223_q8zaqgla0",
+        "name": "Galletas Todeschini ‘Cream Cracker’ (360g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 2.19,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784084803950_5g7o1en49",
+        "name": "Paquete de galletas Marías (170g)",
+        "quantity": 4,
+        "type": "product",
+        "unitPrice": 1.39,
+        "discount": 0
+      },
+      {
+        "id": "mll8va5a-rodndwa",
+        "name": "Caja de Malta Bucanero",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 30,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "262.86",
+    "navegador": "Chrome",
+    "sistema_operativo": "Windows",
+    "tipo_usuario": "Único",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "https://www.bing.com/"
+  },
+  {
+    "ip": "138.199.6.54",
+    "pais": "CH",
+    "fecha_hora_entrada": "2026-10-02 13:26:42",
+    "origen": "https://asereshops.com/?ref=KLSDF2s",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Katriana Jorge-Pérez",
+    "telefono_comprador": "+5359148857",
+    "nombre_persona_entrega": "Katriana Jorge-Pérez",
+    "telefono_persona_entrega": "+5359148857",
+    "correo_comprador": "katriana.raeber@bluewin.ch",
+    "direccion_envio": "Calle Rosendo Estrada#24, Reparto Velázquez, 75300 Las Tunas",
+    "compras": [
+      {
+        "id": "prod_1786426562076_16h5ze77t",
+        "name": "Helado Nestlé Sabor Vainilla (4.5Lts)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 22.99,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "22.99",
+    "navegador": "Chrome",
+    "sistema_operativo": "Windows",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:58b:102:a890:217b:dd8b:102f:2860",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-10-06 08:36:16",
+    "origen": "https://asereshops.com/#",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Eileen Cruz",
+    "telefono_comprador": "5024387312",
+    "nombre_persona_entrega": "Mara Peña",
+    "telefono_persona_entrega": "+53 5 5887647",
+    "correo_comprador": "cruz8902@icloud.com",
+    "direccion_envio": "173 Francisco Vega entre Lora y Nicolas Heredia. Fondo",
+    "compras": [
+      {
+        "id": "mlgzank2-1pwcv2o",
+        "name": "Cartón de Huevos",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 11.59,
+        "discount": 0
+      },
+      {
+        "id": "prod_1789797152225_avf6lit3q",
+        "name": "Paquete de pechuga 2kg sin piel y sin hueso",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 18.99,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "42.17",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb91:c6b:43d0:f53a:5d0b:efb7:d32e",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-10-16 13:44:04",
+    "origen": "https://asereshops.com/p/mlgzank2-psrcao1",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Ileana Vila Rodriguez",
+    "telefono_comprador": "+1305 970 7233",
+    "nombre_persona_entrega": "Ana Gerez",
+    "telefono_persona_entrega": "+53 63060062",
+    "correo_comprador": "vilarodriguez61@gmail.com",
+    "direccion_envio": "Edificio 22, Apt. E-1, Buena Vista. Las Tunas",
+    "compras": [
+      {
+        "id": "7",
+        "name": "Pack «El Salve»",
+        "quantity": 1,
+        "type": "pack",
+        "unitPrice": 15.79,
+        "discount": 0
+      },
+      {
+        "id": "mli2ve9o-a60fi91",
+        "name": "Aceite 900ml",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 5.99,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-psrcao1",
+        "name": "Arroz (1Kg)",
+        "quantity": 8,
+        "type": "product",
+        "unitPrice": 1.89,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "48.88",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb91:28a4:4711:51e1:ea9d:6634:3e17",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-10-30 12:31:56",
+    "origen": "https://asereshops.com/#Pack%20%C2%ABEl%20Salve%C2%BB",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Ileana Vila Rodriguez",
+    "telefono_comprador": "+1305 970 7233",
+    "nombre_persona_entrega": "Ana Gerez",
+    "telefono_persona_entrega": "+53 63060062",
+    "correo_comprador": "vilarodriguez61@gmail.com",
+    "direccion_envio": "Edificio 22, Apt. E-1, Buena Vista. Las Tunas",
+    "compras": [
+      {
+        "id": "prod_1792383985919_d8ihmhnra",
+        "name": "Leche en Polvo 1Kg",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 9.99,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-1pwcv2o",
+        "name": "Cartón de Huevos",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 11.59,
+        "discount": 0
+      },
+      {
+        "id": "7",
+        "name": "Pack «El Salve»",
+        "quantity": 1,
+        "type": "pack",
+        "unitPrice": 15.79,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "47.36",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "138.199.6.59",
+    "pais": "CH",
+    "fecha_hora_entrada": "2026-11-01 08:56:03",
+    "origen": "https://asereshops.com/p/mlgzank4-1minyju",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Katriana Jorge-Pérez",
+    "telefono_comprador": "+41798932623",
+    "nombre_persona_entrega": "Katriana Jorge-Pérez",
+    "telefono_persona_entrega": "+5359148857",
+    "correo_comprador": "katriana.raeber@bluewin.ch",
+    "direccion_envio": "Calle Rosendo Estrada #24",
+    "compras": [
+      {
+        "id": "prod_1779859869975_0b7rj40s1",
+        "name": "Leche Condensada «Vima» (390g)",
+        "quantity": 3,
+        "type": "product",
+        "unitPrice": 2.69,
+        "discount": 0
+      },
+      {
+        "id": "prod_1790534980070_k6rnxzllx",
+        "name": "Leche Entera 1Lt Vima",
+        "quantity": 12,
+        "type": "product",
+        "unitPrice": 3.97,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank4-1minyju",
+        "name": "Hígado de pollo (1Kg)",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.49,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "60.20",
+    "navegador": "Chrome",
+    "sistema_operativo": "Windows",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "152.207.213.133",
+    "pais": "CU",
+    "fecha_hora_entrada": "2026-11-03 12:02:44",
+    "origen": "https://asereshops.com/#category=despensa",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Sr",
+    "telefono_comprador": "+52 555 1234567",
+    "nombre_persona_entrega": "carmen",
+    "telefono_persona_entrega": "541258963",
+    "correo_comprador": "carlos@tienda.com",
+    "direccion_envio": "San Antonio tx",
+    "compras": [
+      {
+        "id": "prod_1790103983773_7vkq8kb0b",
+        "name": "Rodajas de Piña en Almibar 567g",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 4.59,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "4.59",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb90:798b:8a27:190a:ae90:ea6e:5d12",
+    "pais": "US",
+    "fecha_hora_entrada": "2026-11-09 15:49:08",
+    "origen": "https://asereshops.com/#category=c%C3%A1rnicos",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Diana Mayo Vargas",
+    "telefono_comprador": "7866038378",
+    "nombre_persona_entrega": "Lianet Mayo Vargas",
+    "telefono_persona_entrega": "+5355543185",
+    "correo_comprador": "jordia200828@gmail.com",
+    "direccion_envio": "Mario J Pérez #28 entre Emilio González y Gonzalo Falcón",
+    "compras": [
+      {
+        "id": "prod_1784085366223_q8zaqgla0",
+        "name": "Galletas Todeschini ‘Cream Cracker’ (360g)",
+        "quantity": 6,
+        "type": "product",
+        "unitPrice": 2.19,
+        "discount": 0
+      },
+      {
+        "id": "prod_1794121106838_3n5ejyew8",
+        "name": "Galletas Saltinas Original (234g)",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 2.59,
+        "discount": 0
+      },
+      {
+        "id": "prod_1787524522137_rfbzr3ki4",
+        "name": "Papel Sanitario 4 rollos doble capa",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.22,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank2-1gog4gl",
+        "name": "Frijol Negro x Lb",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 1.3898879999999998,
+        "discount": 45.28
+      },
+      {
+        "id": "mlgzank4-1oad65v",
+        "name": "Frijoles rojos x lb",
+        "quantity": 1,
+        "type": "product",
+        "unitPrice": 2.79,
+        "discount": 0
+      },
+      {
+        "id": "prod_1784312038654_0299x9yt9",
+        "name": "Troncho de Pescado en Tomate (425g)",
+        "quantity": 2,
+        "type": "product",
+        "unitPrice": 5.79,
+        "discount": 0
+      },
+      {
+        "id": "mlgzank1-1ukdukm",
+        "name": "Chuletas de cerdo x Lb",
+        "quantity": 5,
+        "type": "product",
+        "unitPrice": 3.39,
+        "discount": 0
+      }
+    ],
+    "precio_compra_total": "61.02",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
